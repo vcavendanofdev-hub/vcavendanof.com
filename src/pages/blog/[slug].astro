@@ -1,0 +1,80 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getSite } from '../../content/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => data.lang === 'en');
+  return posts.map((post) => ({
+    params: { slug: post.id.split('/')[1] },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const locale = 'en' as const;
+const { blog } = getSite(locale);
+
+const allPosts = await getCollection('blog');
+const altPost = allPosts.find(
+  (p) => p.data.lang === 'es' && p.data.translationKey === post.data.translationKey
+);
+const altSlug = altPost ? altPost.id.split('/')[1] : '';
+const slug = post.id.split('/')[1];
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${post.data.title} | Victor Avendaño`}
+  description={post.data.description}
+  path={`/blog/${slug}`}
+  altPath={altSlug ? `/es/blog/${altSlug}` : '/es/blog'}
+>
+  <article class="section post">
+    <div class="container post__container">
+      <p class="post__meta">
+        <span>{post.data.category}</span> · <time datetime={post.data.pubDate.toISOString()}>{dateFormatter.format(post.data.pubDate)}</time>
+      </p>
+      <h1>{post.data.title}</h1>
+      <div class="post__body">
+        <Content />
+      </div>
+      <a class="btn btn--secondary" href="/blog">← {blog.backToBlog}</a>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .post__container {
+    max-width: 760px;
+  }
+
+  .post__meta {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .post__body {
+    margin-block: 2rem;
+  }
+
+  .post__body :global(h2) {
+    margin-top: 1.8em;
+  }
+
+  .post__body :global(p) {
+    color: var(--color-ink);
+  }
+
+  .post__body :global(ul) {
+    color: var(--color-ink);
+  }
+</style>

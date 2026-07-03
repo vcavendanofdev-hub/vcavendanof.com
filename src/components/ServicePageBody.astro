@@ -1,0 +1,149 @@
+---
+import FocusGrid from './FocusGrid.astro';
+import ExperienceList from './ExperienceList.astro';
+import ModalityGrid from './ModalityGrid.astro';
+import type { ServicePageContent } from '../content/site/types';
+
+interface Props {
+  content: ServicePageContent;
+  contactHref: string;
+}
+
+const { content, contactHref } = Astro.props;
+---
+
+<section class="section hero">
+  <div class="container hero__inner">
+    <p class="eyebrow">{content.hero.descriptor}</p>
+    <h1>{content.hero.heading}</h1>
+    <p class="hero__intro">{content.hero.intro}</p>
+    <a class="btn btn--primary" href={contactHref}>{content.hero.cta}</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>{content.focusHeading}</h2>
+    <FocusGrid areas={content.focusAreas} />
+  </div>
+</section>
+
+<section class="section section--tight experience">
+  <div class="container">
+    <h2>{content.experienceHeading}</h2>
+    <p class="experience__intro">{content.experienceIntro}</p>
+    <ExperienceList items={content.experience} />
+  </div>
+</section>
+
+{content.extraHeading && content.extraItems && (
+  <section class="section section--tight extra">
+    <div class="container">
+      <h2>{content.extraHeading}</h2>
+      <ul class="extra__list">
+        {content.extraItems.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+)}
+
+<section class="section section--tight modalities">
+  <div class="container">
+    <h2>{content.modalitiesHeading}</h2>
+    <p class="modalities__intro">{content.modalitiesIntro}</p>
+    <ModalityGrid modalities={content.modalities} />
+    {content.audienceNote && <p class="audience-note">{content.audienceNote}</p>}
+  </div>
+</section>
+
+<section class="section section--tight cta-final">
+  <div class="container cta-final__inner">
+    <div>
+      <h2>{content.ctaHeading}</h2>
+      <p>{content.ctaBody}</p>
+    </div>
+    <a class="btn btn--primary" href={contactHref}>{content.ctaButton}</a>
+  </div>
+</section>
+
+<style>
+  .hero__inner {
+    max-width: 760px;
+  }
+
+  .hero__intro {
+    font-size: 1.08rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .experience__intro {
+    max-width: 700px;
+  }
+
+  .extra__list {
+    columns: 2;
+    column-gap: 2.5rem;
+    padding-left: 1.2rem;
+    color: var(--color-slate);
+  }
+
+  .extra__list li {
+    break-inside: avoid;
+    margin-bottom: 0.6rem;
+  }
+
+  .modalities__intro {
+    max-width: 640px;
+  }
+
+  .audience-note {
+    margin-top: 1.75rem;
+    padding: 1.1rem 1.3rem;
+    background: var(--color-accent-soft);
+    border-radius: var(--radius-md);
+    color: var(--color-ink);
+    font-size: 0.95rem;
+  }
+
+  .cta-final {
+    background: var(--color-ink);
+    color: var(--color-cloud);
+    border-radius: var(--radius-lg);
+    margin-inline: 1.5rem;
+  }
+
+  .cta-final h2,
+  .cta-final p {
+    color: var(--color-cloud);
+  }
+
+  .cta-final__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-final__inner > div :global(h2) {
+    margin-bottom: 0.4rem;
+  }
+
+  .cta-final__inner > div :global(p) {
+    margin: 0;
+    color: #c7cedb;
+  }
+
+  @media (max-width: 640px) {
+    .extra__list {
+      columns: 1;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .cta-final {
+      margin-inline: 0;
+      border-radius: 0;
+    }
+  }
+</style>

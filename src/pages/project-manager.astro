@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServicePageBody from '../components/ServicePageBody.astro';
+import { getSite } from '../content/site';
+
+const locale = 'en' as const;
+const { pm } = getSite(locale);
+---
+
+<BaseLayout
+  locale={locale}
+  title={pm.meta.title}
+  description={pm.meta.description}
+  path="/project-manager"
+  altPath="/es/project-manager"
+>
+  <ServicePageBody content={pm} contactHref="/contact" />
+</BaseLayout>

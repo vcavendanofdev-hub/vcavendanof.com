@@ -1,0 +1,87 @@
+---
+import type { ContactContent } from '../content/site/types';
+import { siteMeta } from '../i18n/config';
+
+interface Props {
+  content: ContactContent;
+}
+
+const { content } = Astro.props;
+const whatsappHref = `https://wa.me/${siteMeta.whatsapp.replace('+', '')}?text=${encodeURIComponent(
+  content.whatsappMessage
+)}`;
+
+const CALENDLY_URL = 'https://calendly.com/vcavendanof-dev/30min';
+---
+
+<div class="channels grid">
+  <a class="card channel-card" href={`mailto:${siteMeta.email}`}>
+    <p class="channel-card__label">{content.emailLabel}</p>
+    <p class="channel-card__value">{siteMeta.email}</p>
+    <p class="channel-card__hint">{content.emailHint}</p>
+  </a>
+
+  <a class="card channel-card" href={whatsappHref} target="_blank" rel="noopener noreferrer">
+    <p class="channel-card__label">{content.whatsappLabel}</p>
+    <p class="channel-card__value">{siteMeta.whatsappDisplay}</p>
+    <p class="channel-card__hint">{content.whatsappHint}</p>
+  </a>
+
+  {CALENDLY_URL ? (
+    <a class="card channel-card" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+      <p class="channel-card__label">{content.calendlyLabel}</p>
+      <p class="channel-card__hint">{content.calendlyHint}</p>
+    </a>
+  ) : (
+    <div class="card channel-card channel-card--pending">
+      <p class="channel-card__label">{content.calendlyLabel}</p>
+      <p class="channel-card__hint">{content.calendlyPending}</p>
+    </div>
+  )}
+</div>
+
+<style>
+  .channels {
+    max-width: 780px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+
+  .channel-card {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  a.channel-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-accent);
+  }
+
+  .channel-card__label {
+    font-weight: 700;
+    color: var(--color-ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .channel-card__value {
+    color: var(--color-navy);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+    overflow-wrap: break-word;
+  }
+
+  .channel-card__hint {
+    font-size: 0.9rem;
+    color: var(--color-slate);
+    margin-bottom: 0;
+  }
+
+  .channel-card--pending {
+    opacity: 0.75;
+  }
+
+  .channel-card--pending .channel-card__hint {
+    font-style: italic;
+  }
+</style>

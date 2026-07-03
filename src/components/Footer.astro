@@ -1,0 +1,90 @@
+---
+import { path as localePath, siteMeta } from '../i18n/config';
+import { getSite } from '../content/site';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { hub } = getSite(locale);
+const year = new Date().getFullYear();
+const whatsappHref = `https://wa.me/${siteMeta.whatsapp.replace('+', '')}`;
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <p class="site-footer__name">Victor Avendaño</p>
+      <p class="tagline">{hub.footer.tagline}</p>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="Footer">
+      <a href={localePath('/project-manager', locale)}>{hub.nav.pm}</a>
+      <a href={localePath('/virtual-assistant', locale)}>{hub.nav.va}</a>
+      <a href={localePath('/blog', locale)}>{hub.nav.blog}</a>
+      <a href={localePath('/contact', locale)}>{hub.nav.contact}</a>
+    </nav>
+
+    <div class="site-footer__contact">
+      <a href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>
+      <a href={whatsappHref} target="_blank" rel="noopener noreferrer">{siteMeta.whatsappDisplay}</a>
+      <a href={siteMeta.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="container site-footer__bottom">
+    <p>&copy; {year} Victor Avendaño. {hub.footer.rights}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-ink);
+    color: #c7cedb;
+    margin-top: clamp(3rem, 6vw, 5rem);
+  }
+
+  .site-footer__inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding-block: 3rem;
+  }
+
+  .site-footer__name {
+    color: var(--color-cloud);
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .site-footer__nav,
+  .site-footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .site-footer a {
+    color: #c7cedb;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+
+  .site-footer a:hover {
+    color: var(--color-cloud);
+  }
+
+  .site-footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-block: 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .site-footer__bottom p {
+    color: #8b95ab;
+    margin: 0;
+  }
+</style>

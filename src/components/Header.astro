@@ -1,0 +1,125 @@
+---
+import { path as localePath } from '../i18n/config';
+import { getSite } from '../content/site';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+  altHref: string;
+}
+
+const { locale, altHref } = Astro.props;
+const { hub, common } = getSite(locale);
+const homeHref = localePath('/', locale);
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href={homeHref} class="site-header__brand" aria-label={common.homeAriaLabel}>
+      Victor Avendaño
+    </a>
+
+    <nav class="site-header__nav" aria-label="Main">
+      <a href={localePath('/project-manager', locale)}>{hub.nav.pm}</a>
+      <a href={localePath('/virtual-assistant', locale)}>{hub.nav.va}</a>
+      <a href={localePath('/blog', locale)}>{hub.nav.blog}</a>
+      <a href={localePath('/contact', locale)}>{hub.nav.contact}</a>
+    </nav>
+
+    <div class="site-header__actions">
+      <a class="lang-switch" href={altHref} hreflang={locale === 'es' ? 'en' : 'es'}>
+        {common.langSwitchLabel}
+      </a>
+      <a class="btn btn--primary btn--sm" href={localePath('/contact', locale)}>{hub.nav.contact}</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: var(--color-ink);
+    color: var(--color-cloud);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .site-header__brand {
+    font-weight: 800;
+    font-size: 1.15rem;
+    text-decoration: none;
+    color: var(--color-cloud);
+    white-space: nowrap;
+  }
+
+  .site-header__nav {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .site-header__nav a {
+    text-decoration: none;
+    color: #d7dce6;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .site-header__nav a:hover {
+    color: var(--color-cloud);
+  }
+
+  .site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .lang-switch {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-cloud);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: var(--radius-sm);
+    padding: 0.4rem 0.7rem;
+  }
+
+  .lang-switch:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .btn--sm {
+    padding: 0.55rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 760px) {
+    .site-header {
+      position: static;
+    }
+
+    .site-header__inner {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .site-header__nav {
+      order: 3;
+      width: 100%;
+      justify-content: center;
+      gap: 1rem 1.25rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+  }
+</style>

@@ -1,0 +1,34 @@
+---
+import type { Modality } from '../content/site/types';
+
+interface Props {
+  modalities: Modality[];
+}
+
+const { modalities } = Astro.props;
+---
+
+<div class="grid grid--4">
+  {modalities.map((m) => (
+    <div class="card modality-card">
+      <h3>{m.title}</h3>
+      <p>{m.body}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .modality-card {
+    text-align: left;
+  }
+
+  .modality-card h3 {
+    font-size: 1.05rem;
+    color: var(--color-accent-dark);
+  }
+
+  .modality-card p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+  }
+</style>

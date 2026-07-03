@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactChannels from '../components/ContactChannels.astro';
+import { getSite } from '../content/site';
+
+const locale = 'en' as const;
+const { contact } = getSite(locale);
+---
+
+<BaseLayout
+  locale={locale}
+  title={contact.meta.title}
+  description={contact.meta.description}
+  path="/contact"
+  altPath="/es/contact"
+>
+  <section class="section">
+    <div class="container">
+      <h1>{contact.heading}</h1>
+      <p class="contact-intro">{contact.intro}</p>
+      <ContactChannels content={contact} />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-intro {
+    max-width: 640px;
+    margin-bottom: 2.5rem;
+  }
+</style>

@@ -1,0 +1,66 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getSite } from '../content/site';
+import { defaultLocale, type Locale } from '../i18n/config';
+import '../styles/global.css';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  /** Current canonical pathname, e.g. "/project-manager" or "/en/project-manager" */
+  path: string;
+  /** Pathname of the equivalent page in the other language, e.g. "/en/project-manager" */
+  altPath: string;
+  /** Optional JSON-LD structured data object (schema.org) */
+  structuredData?: Record<string, unknown>;
+}
+
+const { locale, title, description, path, altPath, structuredData } = Astro.props;
+const { common } = getSite(locale);
+
+const canonicalURL = new URL(path, Astro.site);
+const altURL = new URL(altPath, Astro.site);
+const ogLocale = locale === 'es' ? 'es_CO' : 'en_US';
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <link rel="alternate" hreflang={locale === 'es' ? 'es' : 'en'} href={canonicalURL} />
+    <link rel="alternate" hreflang={locale === 'es' ? 'en' : 'es'} href={altURL} />
+    <link rel="alternate" hreflang="x-default" href={locale === defaultLocale ? canonicalURL : altURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:site_name" content="Victor Avendaño" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    {structuredData && (
+      <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    )}
+  </head>
+  <body>
+    <a href="#main" class="skip-link">{common.skipToContent}</a>
+    <Header locale={locale} altHref={altPath} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+  </body>
+</html>

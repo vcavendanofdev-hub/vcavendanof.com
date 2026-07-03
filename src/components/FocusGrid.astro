@@ -1,0 +1,28 @@
+---
+import type { FocusArea } from '../content/site/types';
+
+interface Props {
+  areas: FocusArea[];
+}
+
+const { areas } = Astro.props;
+---
+
+<div class="grid grid--2fixed">
+  {areas.map((area) => (
+    <div class="card focus-card">
+      <h3>{area.title}</h3>
+      <p>{area.body}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .focus-card h3 {
+    color: var(--color-navy);
+  }
+
+  .focus-card p {
+    margin-bottom: 0;
+  }
+</style>

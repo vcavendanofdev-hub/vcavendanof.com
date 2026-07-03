@@ -1,0 +1,94 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getSite } from '../../content/site';
+
+const locale = 'en' as const;
+const { blog } = getSite(locale);
+
+const posts = (await getCollection('blog', ({ data }) => data.lang === 'en')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout
+  locale={locale}
+  title={blog.meta.title}
+  description={blog.meta.description}
+  path="/blog"
+  altPath="/es/blog"
+>
+  <section class="section">
+    <div class="container">
+      <h1>{blog.heading}</h1>
+      <p class="blog-intro">{blog.intro}</p>
+
+      <ul class="post-list">
+        {posts.map((post) => {
+          const slug = post.id.split('/')[1];
+          return (
+            <li class="post-card card">
+              <p class="post-card__meta">
+                <span>{post.data.category}</span> · <time datetime={post.data.pubDate.toISOString()}>{dateFormatter.format(post.data.pubDate)}</time>
+              </p>
+              <h2><a href={`/blog/${slug}`}>{post.data.title}</a></h2>
+              <p>{post.data.description}</p>
+              <a class="post-card__link" href={`/blog/${slug}`}>{blog.readMore} →</a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-intro {
+    max-width: 640px;
+    margin-bottom: 2.5rem;
+  }
+
+  .post-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .post-card__meta {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .post-card h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+  }
+
+  .post-card h2 a {
+    text-decoration: none;
+    color: var(--color-ink);
+  }
+
+  .post-card h2 a:hover {
+    color: var(--color-accent);
+  }
+
+  .post-card__link {
+    color: var(--color-navy);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .post-card__link:hover {
+    color: var(--color-accent);
+  }
+</style>

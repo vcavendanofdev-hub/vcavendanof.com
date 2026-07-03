@@ -1,0 +1,17 @@
+{
+  "name": "victor-avendano-site",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "^7.0.5",
+    "@astrojs/sitemap": "^3.7.3"
+  }
+}

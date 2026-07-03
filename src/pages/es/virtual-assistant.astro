@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServicePageBody from '../../components/ServicePageBody.astro';
+import { getSite } from '../../content/site';
+
+const locale = 'es' as const;
+const { va } = getSite(locale);
+---
+
+<BaseLayout
+  locale={locale}
+  title={va.meta.title}
+  description={va.meta.description}
+  path="/es/virtual-assistant"
+  altPath="/virtual-assistant"
+>
+  <ServicePageBody content={va} contactHref="/es/contact" />
+</BaseLayout>
