@@ -40,7 +40,11 @@ src/
 - **Datos de contacto (email, WhatsApp, LinkedIn):** `src/i18n/config.ts` → `siteMeta`.
 - **Paleta y tipografía:** `src/styles/global.css` (variables CSS en `:root`).
 
+## Estado del despliegue
+
+- El sitio está desplegado en producción en `https://vavendano.com` (VM de GCP, ver [DEPLOY.md](DEPLOY.md)), con HTTPS activo (Let's Encrypt, renovación automática verificada).
+- El enlace de Calendly ya está configurado en `CALENDLY_URL` de `src/components/ContactChannels.astro` y la tarjeta "Book a call" está activa.
+
 ## Pendientes conocidos (ver roadmap.md sección 6 y DEPLOY.md)
 
-- Pegar el enlace real de Calendly en la constante `CALENDLY_URL` de `src/components/ContactChannels.astro` (hasta entonces, esa tarjeta se muestra como "próximamente").
-- Provisionar la VM en GCP y desplegar siguiendo [DEPLOY.md](DEPLOY.md).
+- QA visual final: correr Lighthouse (objetivo 90+ en Performance/Accessibility/SEO) sobre `https://vavendano.com`.

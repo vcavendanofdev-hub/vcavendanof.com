@@ -118,11 +118,12 @@ systemctl list-timers | grep certbot
 
 ## 8. Enlace de Calendly
 
-El sitio no tiene formulario de contacto — solo enlaces directos a correo, WhatsApp y Calendly. Para activar el de Calendly:
-
-1. Copia el enlace de tu evento de Calendly (ej. `https://calendly.com/tu-usuario/intro-call`).
-2. Pégalo como valor de `CALENDLY_URL` en [src/components/ContactChannels.astro](src/components/ContactChannels.astro).
-3. Vuelve a construir y desplegar (`npm run build` + deploy). Mientras `CALENDLY_URL` esté vacío, la tarjeta de Calendly se muestra como "próximamente" en vez de enlace activo.
+El sitio no tiene formulario de contacto — solo enlaces directos a correo, WhatsApp y Calendly.
+El enlace de Calendly ya está configurado en `CALENDLY_URL` dentro de
+[src/components/ContactChannels.astro](src/components/ContactChannels.astro)
+(`https://calendly.com/vcavendanof-dev/30min`) y la tarjeta "Book a call" está activa en producción.
+Si en el futuro cambia el evento o el usuario de Calendly, actualiza esa constante y vuelve a
+construir y desplegar (`npm run build` + deploy).
 
 ## 9. QA final en producción
 
