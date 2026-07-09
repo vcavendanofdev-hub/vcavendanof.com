@@ -8,6 +8,7 @@
 - **Idiomas:** español e inglés (bilingüe, rutas separadas — ver sección 1).
 - **Precios:** no se muestran tarifas fijas en ningún punto del sitio. Modelo "cotización a medida".
 - **Marca (DEFINIDA):** ver sección 1.1.
+- **Sincronización con Obsidian (agregado 2026-07-08):** este proyecto alimenta el vault de Obsidian de Victor. Al final de cualquier sesión con cambios reales (commits, deploys, decisiones, cambios de datos de contacto), agregar una entrada a `obsidian-log.md` (raíz del repo) siguiendo las reglas de `obsidian-sync.md` (misma carpeta) antes de terminar la sesión.
 - **Prueba social:** limitada a lo verificable en el CV (SLA 24h, 100% adherencia a specs, CSAT top-tier en Stripe, escala 2M+ usuarios, fintech US$10B+, C2 English EF SET 88/100). No agregar logos de clientes ni testimonios inventados.
 
 ## 1. Arquitectura de información
