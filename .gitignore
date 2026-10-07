@@ -4,3 +4,7 @@ dist/
 .env
 .DS_Store
 npm-debug.log*
+
+# Local agent directives (internal, keep out of this public repo)
+agent-blackboard.md
+CLAUDE.md
