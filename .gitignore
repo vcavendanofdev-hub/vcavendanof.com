@@ -8,3 +8,6 @@ npm-debug.log*
 # Local agent directives (internal, keep out of this public repo)
 agent-blackboard.md
 CLAUDE.md
+
+# Source CV: kept locally, not tracked in this public repo
+cv_avendano.pdf
