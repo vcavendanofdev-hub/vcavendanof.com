@@ -17,7 +17,7 @@ export const hub: HubContent = {
   meta: {
     title: 'Victor Avendaño | Project Manager y Asistente Virtual',
     description:
-      'Project Manager potenciado con IA y Asistente Ejecutivo bilingüe. 10+ años apoyando fintech, sector público y ONGs con sistemas, no solo tareas.',
+      'Project Manager potenciado con IA y Asistente Virtual bilingüe. 10+ años apoyando fintech, sector público y ONGs con sistemas, no solo tareas.',
   },
   nav: {
     pm: 'Project Manager',
@@ -95,7 +95,7 @@ export const hub: HubContent = {
     },
     va: {
       title: 'Asistente Virtual',
-      descriptor: 'Socio ejecutivo con IA',
+      descriptor: 'Asistente Virtual potenciado con IA',
       points: [
         'Gestión de inbox, calendario y CRM bajo SLA',
         'Soporte ejecutivo en inglés C2 a clientes globales',
@@ -208,7 +208,7 @@ export const va: ServicePageContent = {
   meta: {
     title: 'Victor Avendaño | Asistente Virtual bilingüe con IA',
     description:
-      'Asistente ejecutivo bilingüe (inglés C2) con experiencia en soporte global, gestión de inbox/calendario/CRM y flujos de trabajo acelerados con IA.',
+      'Asistente virtual bilingüe (inglés C2) con experiencia en soporte global, gestión de inbox/calendario/CRM y flujos de trabajo acelerados con IA.',
   },
   hero: {
     descriptor: 'Victor Avendaño | Asistente Virtual bilingüe con IA',
@@ -281,7 +281,7 @@ export const va: ServicePageContent = {
   modalitiesIntro:
     'Cotización a medida según alcance — sin tarifas fijas publicadas. Con base en Bogotá (UTC-5) y disponibilidad total en cualquier zona horaria, fines de semana incluidos.',
   modalities: [
-    { title: 'Tiempo completo', body: 'Dedicación exclusiva como asistente ejecutivo.' },
+    { title: 'Tiempo completo', body: 'Dedicación exclusiva como asistente virtual.' },
     { title: 'Medio tiempo', body: 'Cobertura parcial para necesidades específicas.' },
     { title: 'Por proyecto', body: 'Apoyo puntual con alcance y cierre definidos.' },
     { title: 'Retainer', body: 'Disponibilidad recurrente mensual para soporte continuo.' },

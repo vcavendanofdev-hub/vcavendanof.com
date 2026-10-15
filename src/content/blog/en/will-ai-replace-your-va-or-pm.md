@@ -74,6 +74,8 @@ I use AI for first passes: drafts, research summaries, spotting patterns in a pi
 
 At ARQ, I designed an AI-based first-pass filter for source-of-funds verification. It cut unnecessary manual review by over 90% and gave users faster feedback on missing documentation. The word to notice in "first-pass" is *first*. The point was to clear the obvious, so people could spend their time on the cases that needed judgment.
 
+If you want the day-to-day side of this from the project manager's chair, I wrote about it in [How AI Is Changing the Project Manager Role](/blog/how-ai-is-changing-the-project-manager-role).
+
 If you'd like to look at your own week and figure out which parts are first-pass work and which parts need a person, [message me](/contact). We can go through it together.
 
 ## What I read

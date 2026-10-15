@@ -155,3 +155,13 @@ Append-only. See `obsidian-sync.md` in this same folder for the cadence and form
 **Relevant files:** none in this repo (queue and rulings are on the blackboard).
 
 **Vault should know:** nothing starts until Victor says so; the queue is `Tasks/2026-10-15_0100_site-queue.md` on the blackboard.
+
+---
+
+## 2026-10-15 10:30
+
+**What changed:** Queue items 1, 5 and 6 implemented in the working tree on Victor's "start 1, 5 and 6"; not committed or deployed. (1) Role wording: "Virtual Assistant" in both hub meta descriptions, the VA page title and descriptor, the VA card descriptor and the engagement-model line, EN and ES; descriptive phrases about supporting executives were kept. (5) The new research post and "How AI Is Changing the Project Manager Role" link to each other, EN and ES (one appended italic update line on the old post, nothing else changed). (6) `BlogPosting` JSON-LD on all 8 blog posts (`blogPostingSchema` in `src/lib/schema.ts`).
+
+**Relevant files:** `src/content/site/{en,es}.ts`, `src/lib/schema.ts`, `src/pages/blog/[slug].astro`, `src/pages/es/blog/[slug].astro`, and the four posts `will-ai-replace-your-va-or-pm`, `reemplazara-la-ia-a-tu-asistente-virtual-o-pm`, `how-ai-is-changing-the-project-manager-role`, `ia-y-el-rol-del-project-manager`.
+
+**Vault should know:** verified locally: 19 pages build, 8 valid BlogPosting blocks (dates match the visible dates), cross-links resolve in both directions, no overflow or contrast problems at 320 and 375 px. Pending Victor's go-ahead to commit, push and deploy. Items 2, 3, 4 and 7 of the queue remain open.

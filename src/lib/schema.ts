@@ -31,6 +31,30 @@ export function serviceSchema(kind: 'pm' | 'va', locale: Locale, description: st
   };
 }
 
+export function blogPostingSchema(
+  locale: Locale,
+  post: { title: string; description: string; pubDate: Date; category: string },
+  path: string
+) {
+  const url = `${SITE}${path}`;
+  const date = post.pubDate.toISOString().slice(0, 10);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    url,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    datePublished: date,
+    dateModified: date,
+    inLanguage: locale,
+    articleSection: post.category,
+    image: `${SITE}/og-${locale}.png`,
+    author: provider,
+    publisher: provider,
+  };
+}
+
 export function contactSchema(locale: Locale, name: string, description: string, path: string) {
   return {
     '@context': 'https://schema.org',

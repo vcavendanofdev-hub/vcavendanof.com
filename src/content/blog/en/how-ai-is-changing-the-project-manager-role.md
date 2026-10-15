@@ -29,3 +29,5 @@ No AI tool negotiates with a difficult vendor, decides which risk is worth takin
 The Project Manager who benefits from AI isn't the one who uses it for everything, but the one who clearly identifies which parts of their work are mechanical and repeatable — and systematizes them — to spend the remaining time on what actually moves the project forward: people and hard decisions.
 
 Building systems, not just completing tasks, is still what separates a PM who puts out fires from one who prevents them.
+
+*Update, October 2026: I went through ten reports and studies on this question. What they say, and what I'd do with it: [Will AI Replace Your VA or Your PM?](/blog/will-ai-replace-your-va-or-pm)*

@@ -29,3 +29,5 @@ Ninguna herramienta de IA negocia con un proveedor incómodo, decide qué riesgo
 El Project Manager que se beneficia de la IA no es el que la usa para todo, sino el que identifica con claridad qué partes de su trabajo son mecánicas y repetibles — y las sistematiza — para dedicar el tiempo restante a lo que realmente mueve el proyecto: las personas y las decisiones difíciles.
 
 Construir sistemas, no solo completar tareas, sigue siendo la diferencia entre un PM que apaga incendios y uno que los previene.
+
+*Actualización, octubre de 2026: revisé diez informes y estudios sobre esta pregunta. Qué dicen y qué haría yo con eso: [¿Va a reemplazar la IA a tu asistente virtual o a tu PM?](/es/blog/reemplazara-la-ia-a-tu-asistente-virtual-o-pm)*

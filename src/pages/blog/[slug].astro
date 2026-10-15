@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getSite } from '../../content/site';
+import { blogPostingSchema } from '../../lib/schema';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => data.lang === 'en');
@@ -33,6 +34,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { year: 'numeric', month:
   description={post.data.description}
   path={`/blog/${slug}`}
   altPath={altSlug ? `/es/blog/${altSlug}` : '/es/blog'}
+  structuredData={blogPostingSchema(locale, post.data, `/blog/${slug}`)}
 >
   <article class="section post">
     <div class="container post__container">

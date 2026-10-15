@@ -74,6 +74,8 @@ Uso la IA para primeras pasadas: borradores, resúmenes de investigación, detec
 
 En ARQ diseñé un filtro de primera revisión con IA para la verificación de origen de fondos. Redujo en más de 90% la revisión manual innecesaria y dio a los usuarios una respuesta más rápida sobre la documentación faltante. La palabra que hay que notar en "primera revisión" es *primera*. El punto era despejar lo evidente para que las personas pudieran dedicar su tiempo a los casos que requerían criterio.
 
+Si quieres el lado del día a día desde la silla del project manager, lo escribí en [Cómo la IA está cambiando el rol del Project Manager](/es/blog/ia-y-el-rol-del-project-manager).
+
 Si quieres mirar tu propia semana y ver qué partes son trabajo de primera pasada y cuáles necesitan a una persona, [escríbeme](/es/contact). Lo revisamos juntos.
 
 ## Qué leí

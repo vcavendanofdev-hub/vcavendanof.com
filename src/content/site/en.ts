@@ -17,7 +17,7 @@ export const hub: HubContent = {
   meta: {
     title: 'Victor Avendaño | PM & Support Partner',
     description:
-      'AI-augmented Project Manager and bilingual Executive Assistant. 10+ years supporting fintech, public sector, and non-profits with systems, not just tasks.',
+      'AI-augmented Project Manager and bilingual Virtual Assistant. 10+ years supporting fintech, public sector, and non-profits with systems, not just tasks.',
   },
   nav: {
     pm: 'Project Manager',
@@ -95,7 +95,7 @@ export const hub: HubContent = {
     },
     va: {
       title: 'Virtual Assistant',
-      descriptor: 'Executive AI Partner',
+      descriptor: 'AI-Augmented Virtual Assistant',
       points: [
         'Inbox, calendar, and CRM management under SLA',
         'C2 English executive support for global clients',
@@ -206,12 +206,12 @@ export const pm: ServicePageContent = {
 
 export const va: ServicePageContent = {
   meta: {
-    title: 'Victor Avendaño | Executive AI Partner',
+    title: 'Victor Avendaño | AI-Augmented Virtual Assistant',
     description:
-      'Bilingual executive assistant (C2 English) with experience in global support, inbox/calendar/CRM management, and AI-accelerated workflows.',
+      'Bilingual virtual assistant (C2 English) with experience in global support, inbox/calendar/CRM management, and AI-accelerated workflows.',
   },
   hero: {
-    descriptor: 'Victor Avendaño | Executive AI Partner',
+    descriptor: 'Victor Avendaño | AI-Augmented Virtual Assistant',
     heading: 'Bilingual executive support, with AI built into every task',
     intro:
       'I manage inboxes, calendars, and CRMs under strict SLAs, provide C2 English support to global clients, and use AI to accelerate research and drafting. The same discipline that sustained global support operations at Stripe, applied to your day-to-day.',
@@ -281,7 +281,7 @@ export const va: ServicePageContent = {
   modalitiesIntro:
     'Tailored quote based on scope — no published fixed rates. Based in Bogotá (UTC-5), with full availability across time zones, weekends included.',
   modalities: [
-    { title: 'Full-time', body: 'Exclusive dedication as your executive assistant.' },
+    { title: 'Full-time', body: 'Exclusive dedication as your virtual assistant.' },
     { title: 'Part-time', body: 'Partial coverage for specific needs.' },
     { title: 'Per project', body: 'One-off support with a defined scope and close.' },
     { title: 'Retainer', body: 'Recurring monthly availability for ongoing support.' },
