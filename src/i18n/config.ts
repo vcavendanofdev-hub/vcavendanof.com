@@ -15,9 +15,9 @@ export function path(pathname: string, locale: Locale): string {
 
 export const siteMeta = {
   name: 'Victor Avendaño',
-  email: 'melethestel@gmail.com',
-  whatsapp: '+573057218436',
-  whatsappDisplay: '+57 305 721 8436',
+  email: 'info@vavendano.com',
+  whatsapp: '+573219052343',
+  whatsappDisplay: '+57 321 905 2343',
   linkedin: 'https://linkedin.com/in/vavendanof',
   location: 'Bogotá, Colombia',
 };
