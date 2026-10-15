@@ -33,6 +33,7 @@ export const hub: HubContent = {
       "I have 10+ years of operational and executive experience across fintech, public sector, and social-impact organizations. I'm bilingual (native Spanish, C2 English) and AI-fluent: a daily user of ChatGPT, Claude, and Microsoft Copilot to accelerate research, drafting, and process automation.",
     ctaPM: 'See the Project Manager service',
     ctaVA: 'See the Virtual Assistant service',
+    photoAlt: 'Portrait of Victor Avendaño',
   },
   about: {
     eyebrow: 'About me',

@@ -17,6 +17,7 @@ const structuredData = {
     '@type': 'Person',
     name: 'Victor Camilo Avendaño Forero',
     email: 'mailto:info@vavendano.com',
+    image: 'https://vavendano.com/victor-avendano-720.jpg',
     sameAs: ['https://linkedin.com/in/vavendanof'],
   },
   areaServed: 'Worldwide',
@@ -33,15 +34,27 @@ const structuredData = {
   structuredData={structuredData}
 >
   <section class="section hero">
-    <div class="container hero__inner">
-      <p class="eyebrow">{hub.hero.descriptor}</p>
-      <h1 class="tagline">{hub.hero.tagline}</h1>
-      <p class="hero__role">{hub.hero.roleLine}</p>
-      <p class="hero__intro">{hub.hero.intro}</p>
-      <div class="hero__ctas">
-        <a class="btn btn--primary" href="/es/project-manager">{hub.hero.ctaPM}</a>
-        <a class="btn btn--navy" href="/es/virtual-assistant">{hub.hero.ctaVA}</a>
+    <div class="container hero__grid">
+      <div class="hero__text">
+        <p class="eyebrow">{hub.hero.descriptor}</p>
+        <h1 class="tagline">{hub.hero.tagline}</h1>
+        <p class="hero__role">{hub.hero.roleLine}</p>
+        <p class="hero__intro">{hub.hero.intro}</p>
+        <div class="hero__ctas">
+          <a class="btn btn--primary" href="/es/project-manager">{hub.hero.ctaPM}</a>
+          <a class="btn btn--navy" href="/es/virtual-assistant">{hub.hero.ctaVA}</a>
+        </div>
       </div>
+      <figure class="hero__photo">
+        <img
+          src="/victor-avendano-720.jpg"
+          srcset="/victor-avendano-360.jpg 360w, /victor-avendano-720.jpg 720w"
+          sizes="(max-width: 880px) 168px, 340px"
+          width="340"
+          height="340"
+          alt={hub.hero.photoAlt}
+        />
+      </figure>
     </div>
   </section>
 
@@ -95,8 +108,42 @@ const structuredData = {
 </BaseLayout>
 
 <style>
-  .hero__inner {
-    max-width: 780px;
+  .hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  .hero__text {
+    max-width: 700px;
+  }
+
+  .hero__photo {
+    margin: 0;
+  }
+
+  .hero__photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid var(--color-accent-dark);
+    box-shadow: 0 0 0 6px var(--color-paper), var(--shadow-card);
+  }
+
+  @media (max-width: 880px) {
+    .hero__grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .hero__photo {
+      order: -1;
+      width: 168px;
+    }
   }
 
   .hero h1 {

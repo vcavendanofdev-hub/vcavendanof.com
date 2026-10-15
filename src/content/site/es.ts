@@ -33,6 +33,7 @@ export const hub: HubContent = {
       'Tengo más de 10 años de experiencia operativa y ejecutiva en fintech, sector público y organizaciones de impacto social. Soy bilingüe (español nativo, inglés C2) y AI-fluent: uso ChatGPT, Claude y Microsoft Copilot a diario para acelerar investigación, redacción y automatización de procesos.',
     ctaPM: 'Ver servicio de Project Manager',
     ctaVA: 'Ver servicio de Asistente Virtual',
+    photoAlt: 'Retrato de Victor Avendaño',
   },
   about: {
     eyebrow: 'Sobre mí',

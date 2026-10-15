@@ -49,6 +49,7 @@ export interface HubContent {
     intro: string;
     ctaPM: string;
     ctaVA: string;
+    photoAlt: string;
   };
   about: {
     eyebrow: string;
