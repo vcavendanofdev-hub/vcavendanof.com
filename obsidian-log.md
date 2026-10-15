@@ -31,3 +31,67 @@ Append-only. See `obsidian-sync.md` in this same folder for the cadence and form
 **Relevant files:** `src/i18n/config.ts`, `src/pages/index.astro`, `src/pages/es/index.astro` (uncommitted)
 
 **Vault should know:** Fase 1's two main items (WhatsApp number, email consistency) are both now implemented in source, pending commit/deploy. Still unverified per the roadmap's own acceptance note: whether Gmail "Send As" is configured for `info@vavendano.com` so Victor can actually reply from that address — worth confirming before relying on it live.
+
+---
+
+## 2026-10-14 16:15
+
+**What changed:** Victor committed and pushed the Fase 1 contact-info changes (GitHub Desktop, his own flow). Deployed to production: pulled in Cloud Shell, `npm run build`, `gcloud compute scp --recurse dist/* vcavendanof_dev@victoravendano-web:/var/www/victoravendano/dist/ --zone=us-central1-a` (first attempt hit `Permission denied (publickey)`, a plain SSH-key-propagation delay in Cloud Shell — retry of the same command succeeded, no key regeneration needed). Verified live on `https://vavendano.com` and `https://vavendano.com/es/project-manager`: footer and WhatsApp contact card both show the new email and number, `wa.me` link resolves to `573219052343`. Victor confirmed separately that Gmail "Send As" for `info@vavendano.com` was already configured, so that roadmap risk is closed too.
+
+**Relevant files:** `src/i18n/config.ts`, `src/pages/index.astro`, `src/pages/es/index.astro` — commit pushed to `main` on GitHub (`vcavendanofdev-hub/vcavendanof.com`), deployed to `victoravendano-web` VM.
+
+**Vault should know:** Roadmap Fase 1 is now fully closed and live in production: WhatsApp `+57 321 905 2343`, email `info@vavendano.com`, both verified on the live site in EN and ES. Still open from Fase 1's original scope: confirming no other hardcoded contact refs exist beyond the ones already found and fixed (none were), and the final rebuild/redeploy QA pass from the roadmap's acceptance criterion — now done. Fase 1 can be marked complete in `roadmap-mejoras-sitio.md` when Victor next reviews it.
+
+---
+
+## 2026-10-14 21:40
+
+**What changed:** Design, accessibility, SEO and content review of the live site (10 pages, EN/ES, desktop and 375 px) cross-checked against the personal vault and the blackboard. Victor answered 12 open questions in chat and the findings were turned into an executable plan. `roadmap-mejoras-sitio.md` Fase 1 is now ticked (final values: +57 321 905 2343, info@vavendano.com). No site code changed in this entry; `deploy/deploy.sh`, `DEPLOY.md` and this log are still uncommitted.
+
+**Relevant files:** `roadmap-correcciones-2026-10.md` (new, the plan), `roadmap-mejoras-sitio.md` (Fase 1 ticked and pointer added).
+
+**Vault should know:**
+- Findings, in order of severity: footer tagline unreadable (1.31:1 contrast); brand terracota fails WCAG AA on buttons and eyebrows (4.03:1 and 3.7:1); Ecoproyectos period shown as "2015 – 2023" (PM) and "2018 – 2023" (VA), both wrong; hero CTAs not equal weight; canonical/hreflang URLs 301-redirect; 404 is the default nginx page; Spanish pages have English titles; no og:image; no HSTS/CSP. Performance is not a problem (12 KB HTML, 6 KB CSS, no JS). No Lighthouse score was obtained (PageSpeed API returned 429).
+- Decisions recorded by Victor on 14/10/2026 (full table in `roadmap-correcciones-2026-10.md`, section 0): Ecoproyectos shown as Sep 2016 - Jan 2018 plus the approved consulting line; the ARQ AI-filter figure is published; the Procinal/NEC project is anonymized; availability statement approved (Bogota UTC-5, any time zone, weekends included); all 37 certifications published, grouped and collapsible; four extra services added to the VA page; hero stays 50/50 with equal-weight CTAs; no fincrime service page; self-hosting Inter and Fraunces approved; `cv_avendano.pdf` to be removed from the public repo tree (it stays in git history).
+- Execution order: Phase A (accuracy + accessibility, no new copy) ships first; Phase B (content) after Victor reviews the appendix copy; Phase C (SEO/infra, includes VM nginx steps) third. Dependency: professional photo from the 15/10/2026 session unlocks the final og:image and the old roadmap's Fase 4.
+- Not recorded here on purpose: nothing about third parties or financial figures.
+
+---
+
+## 2026-10-14 23:55
+
+**What changed:** Phase A of `roadmap-correcciones-2026-10.md` implemented in the working tree (A1-A7). Not committed, not deployed. Ecoproyectos period corrected to Sep 2016 - Jan 2018 on both service pages in EN and ES; footer tagline readable again; brand terracotta now meets WCAG AA (primary button, eyebrows, skip link, blog accent text use `--color-accent-dark`; new `--color-accent-deep` for hover); hero CTAs equal weight (PM terracotta, VA navy); role line added under the hero H1 (new `hero.roleLine` field in `types.ts`, `en.ts`, `es.ts`); duplicate "Contact" link removed from the header nav; header and footer tap targets raised to 44 px; mobile header breakpoint 760 -> 880 px.
+
+**Relevant files:** `src/styles/global.css`, `src/components/Header.astro`, `src/components/Footer.astro`, `src/content/site/{en,es,types}.ts`, `src/pages/index.astro`, `src/pages/es/index.astro`, `src/pages/blog/{index,[slug]}.astro`, `src/pages/es/blog/{index,[slug]}.astro`.
+
+**Vault should know:** Measured locally across the 10 routes (EN/ES) at 320, 375, 768 and 881+ px: 0 contrast failures (was 5 on the hub alone), 0 horizontal overflow, 0 tap targets under 44 px from 375 px up, mobile header 221 -> 102 px. The live site still shows the old state until Victor commits, pushes and deploys. Next: Victor reviews the copy appendix of the roadmap (Phase B), then Phase C (includes two nginx steps on the VM).
+
+---
+
+## 2026-10-15 00:30
+
+**What changed:** Victor approved all Phase B copy of `roadmap-correcciones-2026-10.md` (mid-session, in chat). Phase C implemented in the working tree, not committed or deployed: branded bilingual 404 page (`src/pages/404.astro`, noindex, not in the sitemap); Spanish titles and card descriptors; `og:image`/`twitter:image` with `summary_large_image` and `theme-color` in `BaseLayout.astro`, plus provisional typographic cards `public/og-en.png` and `og-es.png` (1200x630, replaced when the professional photo exists); JSON-LD `Service` on both service pages and `ContactPage` on contact in EN and ES (`src/lib/schema.ts`); Inter and Fraunces self-hosted in `public/fonts/` (96 KB total, OFL) replacing the Google Fonts import; nginx template and `deploy/security-headers.conf` (HSTS, CSP, Permissions-Policy, `server_tokens off`, no-redirect `try_files`); runbook section in `DEPLOY.md`.
+
+**Relevant files:** `src/pages/404.astro`, `src/lib/schema.ts`, `src/layouts/BaseLayout.astro`, `src/styles/global.css`, `src/content/site/{en,es,types}.ts`, `src/pages/{project-manager,virtual-assistant,contact}.astro` and the `es/` mirrors, `public/fonts/*`, `public/og-*.png`, `deploy/nginx.conf`, `deploy/security-headers.conf`, `DEPLOY.md`.
+
+**Vault should know:** Verified locally: 17 pages build, zero third-party requests, 8 valid JSON-LD blocks, 11 routes with 0 contrast/tap-target/overflow problems. Still open: (1) commit, push and deploy; (2) two VM-side nginx steps (trailing-slash fix, security headers) that Victor runs in Cloud Shell from the `DEPLOY.md` runbook, only after the site deploy because the CSP needs the self-hosted fonts; (3) Lighthouse scores via PageSpeed Insights, which Victor runs in the browser; (4) Phase B implementation (copy approved).
+
+---
+
+## 2026-10-15 00:45
+
+**What changed:** Phase B of `roadmap-correcciones-2026-10.md` implemented in the working tree (B1-B6), using the copy Victor approved. Not committed or deployed. PM page: Ecoproyectos entry rewritten (team of 10, anonymized multi-city rollout with a formal change order, Sep 2016 - Jan 2018), the approved consultant line added, ARQ AI first-pass filter added. Hub: stats 6 -> 8 (10 people led, 90%+ less manual review; 2 columns on mobile), the Jugger and still-active-organizations sentence, and a new `#credentials` section with 37 certifications in 4 collapsible groups plus 2 education entries (data in `src/content/site/credentials.ts`, component `CertificationGroups.astro`). VA page: tools list expanded and retitled "Tools I work with", the 20-30 KYC calls a day, a new "Also available" block (translation, travel and events, document management, reporting). Availability line (Bogota UTC-5, any time zone, weekends included) on the contact page and in both engagement-model intros. PM page links to the credentials section.
+
+**Relevant files:** `src/content/site/{en,es,types,credentials}.ts`, `src/components/{CertificationGroups,ServicePageBody,StatGrid}.astro`, `src/pages/{index,contact}.astro` and the `es/` mirrors.
+
+**Vault should know:** Verified locally: 17 pages build, 37 certifications and 2 education entries render in EN and ES, 22 audits (11 routes at 320 and 375 px, collapsibles expanded) with 0 contrast, tap-target or overflow problems. Items written from the roadmap's Phase B description and not asked as separate questions: the two education lines, the Jugger 2018 sentence, and using "Virtual Assistant" in the role line while the meta description still says "Executive Assistant". Nothing is live until Victor commits, pushes and deploys; Phases A, B and C can ship together.
+
+---
+
+## 2026-10-15 01:40
+
+**What changed:** First research-based blog post drafted for review, EN and ES, not committed or deployed: `src/content/blog/en/will-ai-replace-your-va-or-pm.md` and `src/content/blog/es/reemplazara-la-ia-a-tu-asistente-virtual-o-pm.md` (translationKey `will-ai-replace-va-pm`). It draws on ten sources reviewed in this session; eight are quoted (WEF Future of Jobs 2025, Gartner 2019 via ITPro, Upwork Research Institute, Brynjolfsson/Li/Raymond, Noy/Zhang, Dell'Acqua et al. via Mollick, Microsoft/LinkedIn Work Trend Index 2024, HBR 2023). McKinsey 2023 and ASAP 2025 were reviewed but not quoted (original unreachable; numbers behind a membership). Also fixed a latent date bug: blog dates were formatted in the build machine's timezone, so a UTC-5 build showed the previous day; the four blog pages now format in UTC.
+
+**Relevant files:** the two post files above; `src/pages/blog/{index,[slug]}.astro` and `src/pages/es/blog/{index,[slug]}.astro` (timeZone: 'UTC').
+
+**Vault should know:** The post uses only facts already approved for the site (ARQ first-pass filter, 90%+ less unnecessary manual review). Pending Victor's review before commit. The blog already had three posts from June 2026; this one is the first of the evidence-based direction and partly overlaps "How AI Is Changing the Project Manager Role" (experience-based).

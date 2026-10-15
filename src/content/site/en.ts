@@ -10,6 +10,7 @@ export const common: CommonStrings = {
   langSwitchLabel: 'Español',
   skipToContent: 'Skip to content',
   homeAriaLabel: 'Victor Avendaño — home',
+  ogImageAlt: 'Victor Avendaño: AI-augmented Project Manager and bilingual Virtual Assistant',
 };
 
 export const hub: HubContent = {
@@ -27,6 +28,7 @@ export const hub: HubContent = {
   hero: {
     descriptor: 'Victor Avendaño | PM & Support Partner',
     tagline: 'I build systems, not just execute tasks. Your bilingual operations partner, AI built in.',
+    roleLine: 'AI-augmented Project Manager and bilingual Virtual Assistant',
     intro:
       "I have 10+ years of operational and executive experience across fintech, public sector, and social-impact organizations. I'm bilingual (native Spanish, C2 English) and AI-fluent: a daily user of ChatGPT, Claude, and Microsoft Copilot to accelerate research, drafting, and process automation.",
     ctaPM: 'See the Project Manager service',
@@ -38,7 +40,7 @@ export const hub: HubContent = {
     body: [
       "I'm Victor Camilo Avendaño Forero, an AI-fluent operations and administrative professional with 10+ years supporting executives, account leaders, and multi-stakeholder programs across fintech, public sector, and social-impact environments.",
       "My approach starts from a simple principle: turn ad-hoc requests into documented, repeatable processes that a team can keep using after I hand off the work. That includes managing inboxes, calendars, and CRMs under strict SLAs, coordinating with stakeholders across time zones, and using AI tools daily (ChatGPT, Claude, Microsoft Copilot, and local LLMs like Ollama) for research, drafting, and reporting.",
-      'I\'m a native Spanish speaker with certified C2 English (EF SET 88/100). I have operated in fully remote environments with global clients, as well as in projects with Bogotá district government entities and non-profits I founded and led myself.',
+      'I\'m a native Spanish speaker with certified C2 English (EF SET 88/100). I have operated in fully remote environments with global clients, as well as in projects with Bogotá district government entities and non-profits I founded and led myself. Both organizations are still active today, and I competed at the Jugger Club World Championship in Germany in 2018.',
     ],
   },
   achievements: {
@@ -47,9 +49,31 @@ export const hub: HubContent = {
       { value: '10+', label: 'years of experience in operations and executive support' },
       { value: '24h', label: 'SLA response standard in high-volume operations' },
       { value: '100%', label: 'adherence to specifications and financial limits (Ecoproyectos Aire)' },
+      { value: '10', label: 'people led simultaneously (Ecoproyectos Aire)' },
       { value: '2M+', label: 'users on the fintech platform where I managed case queues (ARQ)' },
+      { value: '90%+', label: 'less unnecessary manual review, through an AI first-pass filter I designed (ARQ)' },
       { value: 'US$10B+', label: 'scale of the fintech operation I have worked in' },
       { value: 'C2', label: 'certified English — EF SET 88/100' },
+    ],
+  },
+  credentials: {
+    eyebrow: 'Credentials',
+    heading: 'Certifications and education',
+    intro:
+      'Continuous training in AI, project management, and stakeholder leadership, on top of the experience above.',
+    groupTitles: {
+      ai: 'AI & Automation',
+      pm: 'Project & Stakeholder Management',
+      admin: 'Administration & Communication',
+      sustainability: 'Sustainability & Tech Strategy',
+    },
+    educationHeading: 'Education',
+    education: [
+      { title: 'BA in History', detail: 'Universidad Nacional de Colombia, 2014' },
+      {
+        title: 'International Diploma in Project Management (PMI guidelines)',
+        detail: 'Instituto Europeo de Posgrado (IEP), Asturias, Aug 2016',
+      },
     ],
   },
   compare: {
@@ -130,17 +154,24 @@ export const pm: ServicePageContent = {
   experience: [
     {
       org: 'Ecoproyectos Aire S.A.S',
-      role: 'Operations & Project Manager / Junior Project Manager',
-      period: '2015 – 2023',
+      role: 'Operations & Project Manager',
+      period: 'Sep 2016 – Jan 2018',
       benefit:
-        'I managed full project lifecycles (calendars, budgets, compliance reporting), achieving 100% adherence to specifications and financial limits — the same discipline I would apply to your deliverables.',
+        'I led a team of 10 and managed full project lifecycles (calendars, budgets, KPI and compliance reporting), achieving 100% adherence to specifications and financial limits. That included a multi-city rollout for a national cinema chain and a formal change order when a technology partner altered its equipment specifications mid-project.',
+    },
+    {
+      org: 'Ecoproyectos Aire S.A.S',
+      role: 'Consultant (AI integration)',
+      period: 'May 2023 – present (sporadic engagements)',
+      benefit:
+        'Integrates Claude and OpenAI models for tasks that need cloud processing, and Ollama with Qwen and DeepSeek for local processing.',
     },
     {
       org: 'ARQ (formerly DolarApp)',
       role: 'FinCrime Analyst — High-Volume Case Operations',
       period: 'Jul 2024 – Apr 2026',
       benefit:
-        'I managed high-volume case queues on a 2M+ user platform under strict SLAs, building templates and escalation paths that became reusable team assets — the same systematization approach I bring to any project.',
+        'I managed high-volume case queues on a 2M+ user platform under strict SLAs, building templates and escalation paths that became reusable team assets — the same systematization approach I bring to any project. I also designed an AI-based first-pass filter for source-of-funds verification that cut unnecessary manual review by over 90% and gave users faster feedback on missing documentation.',
     },
     {
       org: 'UAERMV — Bogotá District Government',
@@ -156,8 +187,10 @@ export const pm: ServicePageContent = {
     'Google Project Management Professional Certificate',
     'Generative AI for Project Managers Specialization (IBM)',
   ],
+  extraLink: { label: 'See all certifications and courses', href: '/#credentials' },
   modalitiesHeading: 'Engagement models',
-  modalitiesIntro: 'Tailored quote based on scope — no published fixed rates.',
+  modalitiesIntro:
+    'Tailored quote based on scope — no published fixed rates. Based in Bogotá (UTC-5), with full availability across time zones, weekends included.',
   modalities: [
     { title: 'Full-time', body: 'Exclusive dedication to your team or organization.' },
     { title: 'Part-time', body: 'Partial support for projects with variable workload.' },
@@ -211,7 +244,7 @@ export const va: ServicePageContent = {
       role: 'Customer Support Specialist — Global English Operations',
       period: 'May 2023 – Jul 2024',
       benefit:
-        'I owned end-to-end support cases in Salesforce CRM under strict SLAs, maintaining top-tier CSAT with a global client base — communication exclusively in C2 English, including business owners and finance leads.',
+        'I owned end-to-end support cases in Salesforce CRM under strict SLAs, maintaining top-tier CSAT with a global client base — communication exclusively in C2 English, including business owners and finance leads, and roughly 20–30 phone-based KYC verification calls a day.',
     },
     {
       org: 'ARQ (formerly DolarApp)',
@@ -223,20 +256,30 @@ export const va: ServicePageContent = {
     {
       org: 'Ecoproyectos Aire S.A.S',
       role: 'Direct support to executive leadership',
-      period: '2018 – 2023',
+      period: 'Sep 2016 – Jan 2018',
       benefit:
         'I coordinated calendars, travel/event logistics, and follow-up tracking for senior leadership, with digital infrastructure in Google Workspace and SharePoint.',
     },
   ],
-  extraHeading: 'Tools mastered',
+  extraHeading: 'Tools I work with',
   extraItems: [
-    'Salesforce CRM',
+    'Salesforce, Zoho CRM, and Intercom',
+    'Jira, Confluence, and Slack',
     'Google Workspace (Gmail, Calendar, Drive, Docs, Sheets)',
-    'Microsoft Planner and SharePoint',
-    'ChatGPT, Claude, and Microsoft Copilot',
+    'Microsoft Outlook, Teams, Planner, and SharePoint',
+    'Trello, Asana, Monday.com, and Microsoft Project',
+    'ChatGPT, Claude, Gemini, and Microsoft Copilot',
+  ],
+  alsoHeading: 'Also available',
+  alsoItems: [
+    'English ↔ Spanish translation',
+    'Travel and event logistics',
+    'Document management and compliance filing',
+    'Reporting and KPI tracking',
   ],
   modalitiesHeading: 'Engagement models',
-  modalitiesIntro: 'Tailored quote based on scope — no published fixed rates.',
+  modalitiesIntro:
+    'Tailored quote based on scope — no published fixed rates. Based in Bogotá (UTC-5), with full availability across time zones, weekends included.',
   modalities: [
     { title: 'Full-time', body: 'Exclusive dedication as your executive assistant.' },
     { title: 'Part-time', body: 'Partial coverage for specific needs.' },
@@ -255,6 +298,7 @@ export const contact: ContactContent = {
   },
   heading: "Let's talk",
   intro: "Reach out through whichever channel works best for you and I'll get back to you with next steps. No endless forms, no hidden rates.",
+  availability: 'Based in Bogotá (UTC-5), with full availability across time zones, weekends included.',
   emailLabel: 'Email',
   emailHint: "I respond within 24 hours.",
   whatsappLabel: 'WhatsApp',

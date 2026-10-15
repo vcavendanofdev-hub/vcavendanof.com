@@ -28,12 +28,24 @@ export interface Modality {
   body: string;
 }
 
+export type CertGroupKey = 'ai' | 'pm' | 'admin' | 'sustainability';
+
+export interface CredentialsContent {
+  eyebrow: string;
+  heading: string;
+  intro: string;
+  groupTitles: Record<CertGroupKey, string>;
+  educationHeading: string;
+  education: { title: string; detail: string }[];
+}
+
 export interface HubContent {
   meta: { title: string; description: string };
   nav: { pm: string; va: string; blog: string; contact: string };
   hero: {
     descriptor: string;
     tagline: string;
+    roleLine: string;
     intro: string;
     ctaPM: string;
     ctaVA: string;
@@ -47,6 +59,7 @@ export interface HubContent {
     heading: string;
     stats: Stat[];
   };
+  credentials: CredentialsContent;
   compare: {
     eyebrow: string;
     heading: string;
@@ -80,6 +93,9 @@ export interface ServicePageContent {
   experience: ExperienceItem[];
   extraHeading?: string;
   extraItems?: string[];
+  extraLink?: { label: string; href: string };
+  alsoHeading?: string;
+  alsoItems?: string[];
   modalitiesHeading: string;
   modalitiesIntro: string;
   modalities: Modality[];
@@ -93,6 +109,7 @@ export interface ContactContent {
   meta: { title: string; description: string };
   heading: string;
   intro: string;
+  availability: string;
   emailLabel: string;
   emailHint: string;
   whatsappLabel: string;
@@ -116,4 +133,5 @@ export interface CommonStrings {
   langSwitchLabel: string;
   skipToContent: string;
   homeAriaLabel: string;
+  ogImageAlt: string;
 }

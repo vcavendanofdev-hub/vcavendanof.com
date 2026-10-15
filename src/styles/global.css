@@ -7,7 +7,22 @@
   contrapunto humano al grafito/navy dominante.
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap');
+/* Fuentes autoalojadas (OFL), subconjunto latino. Los glifos fuera de él (p. ej. flechas) caen a la fuente del sistema. */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('/fonts/inter-latin-var.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/fraunces-italic-500-latin.woff2') format('woff2');
+}
 
 :root {
   /* Neutral base — grafito / azul marino */
@@ -20,7 +35,8 @@
 
   /* Acento cálido — terracota */
   --color-accent: #c1662e;
-  --color-accent-dark: #a04f21;
+  --color-accent-dark: #a04f21;   /* texto y botones: pasa AA sobre blanco y paper */
+  --color-accent-deep: #8a4219;   /* hover del botón primario */
   --color-accent-soft: #f4e3d3;
 
   /* Estados */
@@ -140,7 +156,7 @@ p {
   letter-spacing: 0.12em;
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
   margin-bottom: 0.75rem;
 }
 
@@ -166,12 +182,21 @@ p {
 }
 
 .btn--primary {
-  background: var(--color-accent);
+  background: var(--color-accent-dark);
   color: var(--color-cloud);
 }
 
 .btn--primary:hover {
-  background: var(--color-accent-dark);
+  background: var(--color-accent-deep);
+}
+
+.btn--navy {
+  background: var(--color-ink);
+  color: var(--color-cloud);
+}
+
+.btn--navy:hover {
+  background: var(--color-navy);
 }
 
 .btn--secondary {
@@ -227,7 +252,7 @@ p {
   position: absolute;
   left: -999px;
   top: auto;
-  background: var(--color-accent);
+  background: var(--color-accent-dark);
   color: var(--color-cloud);
   padding: 0.75rem 1.25rem;
   border-radius: var(--radius-sm);

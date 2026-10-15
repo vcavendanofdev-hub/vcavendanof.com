@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ServicePageBody from '../components/ServicePageBody.astro';
 import { getSite } from '../content/site';
+import { serviceSchema } from '../lib/schema';
 
 const locale = 'en' as const;
 const { pm } = getSite(locale);
@@ -13,6 +14,7 @@ const { pm } = getSite(locale);
   description={pm.meta.description}
   path="/project-manager"
   altPath="/es/project-manager"
+  structuredData={serviceSchema('pm', locale, pm.meta.description, '/project-manager')}
 >
   <ServicePageBody content={pm} contactHref="/contact" />
 </BaseLayout>

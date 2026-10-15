@@ -24,7 +24,7 @@ const altPost = allPosts.find(
 const altSlug = altPost ? altPost.id.split('/')[1] : '';
 const slug = post.id.split('/')[1];
 
-const dateFormatter = new Intl.DateTimeFormat('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
+const dateFormatter = new Intl.DateTimeFormat('es-CO', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 ---
 
 <BaseLayout
@@ -57,7 +57,7 @@ const dateFormatter = new Intl.DateTimeFormat('es-CO', { year: 'numeric', month:
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--color-accent);
+    color: var(--color-accent-dark);
     font-weight: 600;
     margin-bottom: 0.75rem;
   }

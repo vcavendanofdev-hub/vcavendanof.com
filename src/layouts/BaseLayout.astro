@@ -15,14 +15,17 @@ interface Props {
   altPath: string;
   /** Optional JSON-LD structured data object (schema.org) */
   structuredData?: Record<string, unknown>;
+  /** Keep the page out of search indexes (e.g. the 404 page) */
+  noindex?: boolean;
 }
 
-const { locale, title, description, path, altPath, structuredData } = Astro.props;
+const { locale, title, description, path, altPath, structuredData, noindex } = Astro.props;
 const { common } = getSite(locale);
 
 const canonicalURL = new URL(path, Astro.site);
 const altURL = new URL(altPath, Astro.site);
 const ogLocale = locale === 'es' ? 'es_CO' : 'en_US';
+const ogImageURL = new URL(locale === 'es' ? '/og-es.png' : '/og-en.png', Astro.site);
 ---
 
 <!doctype html>
@@ -31,9 +34,13 @@ const ogLocale = locale === 'es' ? 'es_CO' : 'en_US';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#101d2f" />
+    <link rel="preload" href="/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/fraunces-italic-500-latin.woff2" as="font" type="font/woff2" crossorigin />
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonicalURL} />
 
     <link rel="alternate" hreflang={locale === 'es' ? 'es' : 'en'} href={canonicalURL} />
@@ -46,10 +53,16 @@ const ogLocale = locale === 'es' ? 'es_CO' : 'en_US';
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:site_name" content="Victor Avendaño" />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={common.ogImageAlt} />
 
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image:alt" content={common.ogImageAlt} />
 
     {structuredData && (
       <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

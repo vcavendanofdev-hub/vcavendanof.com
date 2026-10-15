@@ -1,0 +1,121 @@
+---
+import { certificationGroups } from '../content/site/credentials';
+import type { CredentialsContent } from '../content/site/types';
+
+interface Props {
+  content: CredentialsContent;
+}
+
+const { content } = Astro.props;
+---
+
+<div class="cred">
+  <div class="cred__groups">
+    {certificationGroups.map((group) => (
+      <details class="cred__group">
+        <summary>
+          <span>{content.groupTitles[group.key]}</span>
+          <span class="cred__count">{group.items.length}</span>
+        </summary>
+        <ul>
+          {group.items.map((item) => <li>{item}</li>)}
+        </ul>
+      </details>
+    ))}
+  </div>
+
+  <div class="cred__edu card">
+    <h3>{content.educationHeading}</h3>
+    <ul>
+      {content.education.map((entry) => (
+        <li>
+          <strong>{entry.title}</strong>
+          <span>{entry.detail}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
+<style>
+  .cred {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .cred__groups {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .cred__group {
+    background: var(--color-cloud);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+  }
+
+  .cred__group summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 44px;
+    padding: 0.5rem 1.1rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  .cred__count {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--color-slate);
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    padding: 0.1rem 0.6rem;
+  }
+
+  .cred__group ul {
+    margin: 0;
+    padding: 0.25rem 1.1rem 1rem 2.3rem;
+    color: var(--color-slate);
+    font-size: 0.95rem;
+  }
+
+  .cred__group li {
+    margin-bottom: 0.35rem;
+  }
+
+  .cred__edu h3 {
+    margin-bottom: 0.9rem;
+  }
+
+  .cred__edu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .cred__edu li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    color: var(--color-slate);
+    font-size: 0.95rem;
+  }
+
+  .cred__edu strong {
+    color: var(--color-ink);
+  }
+
+  @media (max-width: 800px) {
+    .cred {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

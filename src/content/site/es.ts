@@ -10,11 +10,12 @@ export const common: CommonStrings = {
   langSwitchLabel: 'English',
   skipToContent: 'Saltar al contenido',
   homeAriaLabel: 'Victor Avendaño — inicio',
+  ogImageAlt: 'Victor Avendaño: Project Manager potenciado con IA y Asistente Virtual bilingüe',
 };
 
 export const hub: HubContent = {
   meta: {
-    title: 'Victor Avendaño | PM & Support Partner',
+    title: 'Victor Avendaño | Project Manager y Asistente Virtual',
     description:
       'Project Manager potenciado con IA y Asistente Ejecutivo bilingüe. 10+ años apoyando fintech, sector público y ONGs con sistemas, no solo tareas.',
   },
@@ -25,8 +26,9 @@ export const hub: HubContent = {
     contact: 'Contacto',
   },
   hero: {
-    descriptor: 'Victor Avendaño | PM & Support Partner',
+    descriptor: 'Victor Avendaño | Project Manager y Asistente Virtual',
     tagline: 'Construyo sistemas, no solo ejecuto tareas. Tu socio operativo bilingüe, con IA integrada.',
+    roleLine: 'Project Manager potenciado con IA y Asistente Virtual bilingüe',
     intro:
       'Tengo más de 10 años de experiencia operativa y ejecutiva en fintech, sector público y organizaciones de impacto social. Soy bilingüe (español nativo, inglés C2) y AI-fluent: uso ChatGPT, Claude y Microsoft Copilot a diario para acelerar investigación, redacción y automatización de procesos.',
     ctaPM: 'Ver servicio de Project Manager',
@@ -38,7 +40,7 @@ export const hub: HubContent = {
     body: [
       'Soy Victor Camilo Avendaño Forero, profesional de operaciones y administración AI-fluent con más de 10 años apoyando a ejecutivos, líderes de cuenta y programas multi-stakeholder en fintech, sector público y organizaciones de impacto social.',
       'Mi enfoque parte de un principio simple: convertir solicitudes puntuales en procesos documentados y repetibles que cualquier equipo pueda seguir usando después de que entregue el trabajo. Eso incluye gestión de inbox, calendarios y CRM bajo SLAs estrictos, coordinación con stakeholders en distintas zonas horarias, y uso diario de herramientas de IA (ChatGPT, Claude, Microsoft Copilot y LLMs locales como Ollama) para research, borradores y reportes.',
-      'Soy nativo en español, con inglés C2 certificado (EF SET 88/100). He operado en entornos completamente remotos con clientes globales, así como en proyectos con entidades del gobierno distrital de Bogotá y organizaciones sin ánimo de lucro que fundé y dirigí yo mismo.',
+      'Soy nativo en español, con inglés C2 certificado (EF SET 88/100). He operado en entornos completamente remotos con clientes globales, así como en proyectos con entidades del gobierno distrital de Bogotá y organizaciones sin ánimo de lucro que fundé y dirigí yo mismo. Ambas organizaciones siguen activas hoy, y competí en el Campeonato Mundial de Clubes de Jugger en Alemania en 2018.',
     ],
   },
   achievements: {
@@ -47,9 +49,31 @@ export const hub: HubContent = {
       { value: '10+', label: 'años de experiencia en operaciones y gestión ejecutiva' },
       { value: '24h', label: 'estándar de respuesta bajo SLA en operaciones de alto volumen' },
       { value: '100%', label: 'adherencia a especificaciones y límites financieros (Ecoproyectos Aire)' },
+      { value: '10', label: 'personas lideradas simultáneamente (Ecoproyectos Aire)' },
       { value: '2M+', label: 'usuarios en la plataforma fintech donde gestioné colas de casos (ARQ)' },
+      { value: '90%+', label: 'menos revisión manual innecesaria, con un filtro de IA de primera revisión que diseñé (ARQ)' },
       { value: 'US$10B+', label: 'escala de la operación fintech donde he trabajado' },
       { value: 'C2', label: 'inglés certificado — EF SET 88/100' },
+    ],
+  },
+  credentials: {
+    eyebrow: 'Credenciales',
+    heading: 'Certificaciones y formación',
+    intro:
+      'Formación continua en IA, gestión de proyectos y liderazgo con stakeholders, además de la experiencia descrita arriba.',
+    groupTitles: {
+      ai: 'IA y automatización',
+      pm: 'Gestión de proyectos y stakeholders',
+      admin: 'Administración y comunicación',
+      sustainability: 'Sostenibilidad y estrategia tecnológica',
+    },
+    educationHeading: 'Formación académica',
+    education: [
+      { title: 'Pregrado en Historia', detail: 'Universidad Nacional de Colombia, 2014' },
+      {
+        title: 'Diplomado Internacional en Gestión de Proyectos (lineamientos PMI)',
+        detail: 'Instituto Europeo de Posgrado (IEP), Asturias, ago 2016',
+      },
     ],
   },
   compare: {
@@ -59,7 +83,7 @@ export const hub: HubContent = {
       'Ambos servicios parten de la misma base — disciplina operativa, bilingüismo real y uso práctico de IA — pero resuelven necesidades distintas. Elige según lo que necesites resolver hoy.',
     pm: {
       title: 'Project Manager',
-      descriptor: 'AI-Augmented PM',
+      descriptor: 'PM potenciado con IA',
       points: [
         'Gestión de proyectos operativos end-to-end: planeación, presupuesto, KPIs y reporting',
         'Implementación de IA en flujos de trabajo administrativos',
@@ -71,7 +95,7 @@ export const hub: HubContent = {
     },
     va: {
       title: 'Asistente Virtual',
-      descriptor: 'Executive AI Partner',
+      descriptor: 'Socio ejecutivo con IA',
       points: [
         'Gestión de inbox, calendario y CRM bajo SLA',
         'Soporte ejecutivo en inglés C2 a clientes globales',
@@ -95,12 +119,12 @@ export const hub: HubContent = {
 
 export const pm: ServicePageContent = {
   meta: {
-    title: 'Victor Avendaño | AI-Augmented PM',
+    title: 'Victor Avendaño | Project Manager potenciado con IA',
     description:
       'Project Manager con más de 10 años de experiencia operativa, especializado en automatización con IA, proyectos con entidades públicas/ONGs y coordinación remota multi-stakeholder.',
   },
   hero: {
-    descriptor: 'Victor Avendaño | AI-Augmented PM',
+    descriptor: 'Victor Avendaño | Project Manager potenciado con IA',
     heading: 'Gestión de proyectos que combina disciplina operativa con IA aplicada',
     intro:
       'Tengo más de 10 años liderando proyectos operativos y administrativos en fintech, sector público y organizaciones sin ánimo de lucro. Integro herramientas de IA generativa en cada fase del proyecto — planeación, reporting, comunicación con stakeholders — sin perder el control ni la trazabilidad que exigen equipos remotos y multi-stakeholder.',
@@ -130,17 +154,24 @@ export const pm: ServicePageContent = {
   experience: [
     {
       org: 'Ecoproyectos Aire S.A.S',
-      role: 'Operations & Project Manager / Junior Project Manager',
-      period: '2015 – 2023',
+      role: 'Operations & Project Manager',
+      period: 'sep 2016 – ene 2018',
       benefit:
-        'Manejé ciclos completos de proyecto (calendarios, presupuestos, reporting de cumplimiento) logrando 100% de adherencia a especificaciones y límites financieros — la misma disciplina que aplicaría a tus entregables.',
+        'Lideré un equipo de 10 personas y gestioné ciclos completos de proyecto (calendarios, presupuestos, reportes de KPIs y de cumplimiento), con 100 % de apego a las especificaciones y a los límites financieros. Incluyó un despliegue en varias ciudades para una cadena nacional de cines y una orden de cambio formal cuando un socio tecnológico modificó las especificaciones de sus equipos a mitad del proyecto.',
+    },
+    {
+      org: 'Ecoproyectos Aire S.A.S',
+      role: 'Consultor (integración de IA)',
+      period: 'may 2023 – presente (encargos esporádicos)',
+      benefit:
+        'Integro modelos de Claude y OpenAI en tareas que requieren procesamiento en la nube, y Ollama con Qwen y DeepSeek para procesamiento local.',
     },
     {
       org: 'ARQ (antes DolarApp)',
       role: 'FinCrime Analyst — Operaciones de alto volumen',
       period: 'jul 2024 – abr 2026',
       benefit:
-        'Gestioné colas de casos de alto volumen en una plataforma de 2M+ usuarios bajo SLA estrictos, construyendo plantillas y rutas de escalamiento que se volvieron activos reutilizables para el equipo — el mismo enfoque de sistematización que aplico a cualquier proyecto.',
+        'Gestioné colas de casos de alto volumen en una plataforma de 2M+ usuarios bajo SLA estrictos, construyendo plantillas y rutas de escalamiento que se volvieron activos reutilizables para el equipo — el mismo enfoque de sistematización que aplico a cualquier proyecto. También diseñé un filtro de primera revisión con IA para la verificación de origen de fondos que redujo en más de 90 % la revisión manual innecesaria y dio a los usuarios una respuesta más rápida sobre la documentación faltante.',
     },
     {
       org: 'UAERMV — Gobierno Distrital de Bogotá',
@@ -156,8 +187,10 @@ export const pm: ServicePageContent = {
     'Google Project Management Professional Certificate',
     'Generative AI for Project Managers Specialization (IBM)',
   ],
+  extraLink: { label: 'Ver todas las certificaciones y cursos', href: '/es#credentials' },
   modalitiesHeading: 'Modalidades de contratación',
-  modalitiesIntro: 'Cotización a medida según alcance — sin tarifas fijas publicadas.',
+  modalitiesIntro:
+    'Cotización a medida según alcance — sin tarifas fijas publicadas. Con base en Bogotá (UTC-5) y disponibilidad total en cualquier zona horaria, fines de semana incluidos.',
   modalities: [
     { title: 'Tiempo completo', body: 'Dedicación exclusiva a tu equipo u organización.' },
     { title: 'Medio tiempo', body: 'Acompañamiento parcial para proyectos con carga variable.' },
@@ -173,12 +206,12 @@ export const pm: ServicePageContent = {
 
 export const va: ServicePageContent = {
   meta: {
-    title: 'Victor Avendaño | Executive AI Partner',
+    title: 'Victor Avendaño | Asistente Virtual bilingüe con IA',
     description:
       'Asistente ejecutivo bilingüe (inglés C2) con experiencia en soporte global, gestión de inbox/calendario/CRM y flujos de trabajo acelerados con IA.',
   },
   hero: {
-    descriptor: 'Victor Avendaño | Executive AI Partner',
+    descriptor: 'Victor Avendaño | Asistente Virtual bilingüe con IA',
     heading: 'Soporte ejecutivo bilingüe, con IA integrada en cada tarea',
     intro:
       'Gestiono inbox, calendario y CRM bajo SLAs estrictos, doy soporte en inglés C2 a clientes globales, e investigo/redacto con ayuda de IA para acelerar el trabajo. La misma disciplina que sostuve en operaciones de soporte global en Stripe, aplicada a tu día a día.',
@@ -211,7 +244,7 @@ export const va: ServicePageContent = {
       role: 'Customer Support Specialist — Operaciones Globales en Inglés',
       period: 'may 2023 – jul 2024',
       benefit:
-        'Manejé casos de soporte de extremo a extremo en Salesforce CRM bajo SLA estrictos, manteniendo CSAT de primer nivel con clientes globales — comunicación exclusivamente en inglés C2, incluyendo dueños de negocio y líderes financieros.',
+        'Manejé casos de soporte de extremo a extremo en Salesforce CRM bajo SLA estrictos, manteniendo CSAT de primer nivel con clientes globales — comunicación exclusivamente en inglés C2, incluyendo dueños de negocio y líderes financieros, y entre 20 y 30 llamadas diarias de verificación KYC.',
     },
     {
       org: 'ARQ (antes DolarApp)',
@@ -223,20 +256,30 @@ export const va: ServicePageContent = {
     {
       org: 'Ecoproyectos Aire S.A.S',
       role: 'Soporte directo a liderazgo ejecutivo',
-      period: '2018 – 2023',
+      period: 'sep 2016 – ene 2018',
       benefit:
         'Coordiné calendarios, logística de viajes/eventos y seguimiento de pendientes para liderazgo senior, con infraestructura digital en Google Workspace y SharePoint.',
     },
   ],
-  extraHeading: 'Herramientas dominadas',
+  extraHeading: 'Herramientas con las que trabajo',
   extraItems: [
-    'Salesforce CRM',
+    'Salesforce, Zoho CRM e Intercom',
+    'Jira, Confluence y Slack',
     'Google Workspace (Gmail, Calendar, Drive, Docs, Sheets)',
-    'Microsoft Planner y SharePoint',
-    'ChatGPT, Claude y Microsoft Copilot',
+    'Microsoft Outlook, Teams, Planner y SharePoint',
+    'Trello, Asana, Monday.com y Microsoft Project',
+    'ChatGPT, Claude, Gemini y Microsoft Copilot',
+  ],
+  alsoHeading: 'También disponible',
+  alsoItems: [
+    'Traducción inglés ↔ español',
+    'Logística de viajes y eventos',
+    'Gestión documental y archivo de cumplimiento',
+    'Reportes y seguimiento de KPIs',
   ],
   modalitiesHeading: 'Modalidades de contratación',
-  modalitiesIntro: 'Cotización a medida según alcance — sin tarifas fijas publicadas.',
+  modalitiesIntro:
+    'Cotización a medida según alcance — sin tarifas fijas publicadas. Con base en Bogotá (UTC-5) y disponibilidad total en cualquier zona horaria, fines de semana incluidos.',
   modalities: [
     { title: 'Tiempo completo', body: 'Dedicación exclusiva como asistente ejecutivo.' },
     { title: 'Medio tiempo', body: 'Cobertura parcial para necesidades específicas.' },
@@ -255,6 +298,7 @@ export const contact: ContactContent = {
   },
   heading: 'Conversemos',
   intro: 'Escríbeme por el canal que prefieras y te respondo con los siguientes pasos. Sin formularios eternos ni tarifas ocultas.',
+  availability: 'Con base en Bogotá (UTC-5) y disponibilidad total en cualquier zona horaria, fines de semana incluidos.',
   emailLabel: 'Correo',
   emailHint: 'Respondo en menos de 24 horas.',
   whatsappLabel: 'WhatsApp',

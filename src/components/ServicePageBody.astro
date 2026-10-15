@@ -43,6 +43,20 @@ const { content, contactHref } = Astro.props;
       <ul class="extra__list">
         {content.extraItems.map((item) => <li>{item}</li>)}
       </ul>
+      {content.extraLink && (
+        <a class="extra__more" href={content.extraLink.href}>{content.extraLink.label}</a>
+      )}
+    </div>
+  </section>
+)}
+
+{content.alsoHeading && content.alsoItems && (
+  <section class="section section--tight extra">
+    <div class="container">
+      <h2>{content.alsoHeading}</h2>
+      <ul class="extra__list">
+        {content.alsoItems.map((item) => <li>{item}</li>)}
+      </ul>
     </div>
   </section>
 )}
@@ -92,8 +106,16 @@ const { content, contactHref } = Astro.props;
     margin-bottom: 0.6rem;
   }
 
+  .extra__more {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-weight: 600;
+    color: var(--color-accent-dark);
+  }
+
   .modalities__intro {
-    max-width: 640px;
+    max-width: 680px;
   }
 
   .audience-note {

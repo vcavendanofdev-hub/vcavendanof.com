@@ -80,13 +80,13 @@ Desde tu máquina local, en la carpeta del proyecto:
 
 ```bash
 npm run build
-rsync -avz --delete ./dist/ <tu_usuario>@<IP_RESERVADA>:/var/www/victoravendano/dist/
+gcloud compute scp --recurse dist/* vcavendanof_dev@victoravendano-web:/var/www/victoravendano/dist/ --zone=us-central1-a
 ```
 
-O usa el script incluido (edítalo primero con tu usuario/host):
+O usa el script incluido (ya trae los valores reales del proyecto por defecto; se puede correr desde Cloud Shell sin configurar llaves SSH):
 
 ```bash
-VM_HOST=<IP_RESERVADA> VM_USER=<tu_usuario> ./deploy/deploy.sh
+./deploy/deploy.sh
 ```
 
 Luego, en la VM, habilita el server block:
@@ -140,8 +140,45 @@ Para publicar un cambio (nuevo post de blog, ajuste de copy, etc.):
 
 ```bash
 # 1. Edita los archivos fuente localmente (src/content/blog/*.md, src/content/site/*.ts, etc.)
-# 2. Reconstruye y sincroniza:
+# 2. Haz commit y push (GitHub Desktop)
+# 3. Desde Cloud Shell: git pull, luego reconstruye y sincroniza:
 ./deploy/deploy.sh
 ```
 
-No hay CMS ni panel de administración — es edición de archivos + rebuild + rsync, tal como se definió en el roadmap.
+No hay CMS ni panel de administración — es edición de archivos + rebuild + `gcloud compute scp`, tal como se definió en el roadmap.
+
+## Cabeceras de seguridad y URLs sin barra final (cambio de nginx en la VM)
+
+El archivo vivo de nginx lo reescribió certbot, así que **no se sobrescribe con `deploy/nginx.conf`**:
+se edita el vivo. **Orden:** primero despliega el sitio (las fuentes autoalojadas deben existir antes de
+activar la CSP), después este cambio.
+
+```bash
+# 1. Copia el snippet de cabeceras (desde el repo clonado en Cloud Shell)
+gcloud compute scp deploy/security-headers.conf vcavendanof_dev@victoravendano-web:/tmp/ --zone=us-central1-a
+gcloud compute ssh victoravendano-web --zone=us-central1-a
+
+# 2. En la VM: instala el snippet y haz copia del archivo vivo
+sudo mkdir -p /etc/nginx/snippets
+sudo cp /tmp/security-headers.conf /etc/nginx/snippets/security-headers.conf
+sudo cp /etc/nginx/sites-available/victoravendano /etc/nginx/sites-available/victoravendano.bak-$(date +%F)
+
+# 3. Edita el vivo (sudo nano /etc/nginx/sites-available/victoravendano), en el bloque `listen 443 ssl`:
+#    a) añade, justo después de `index index.html;`:
+#         server_tokens off;
+#         include snippets/security-headers.conf;
+#    b) cambia  try_files $uri $uri/ $uri.html =404;
+#       por     try_files $uri $uri/index.html $uri.html =404;
+#    c) elimina las líneas add_header sueltas del bloque server (X-Content-Type-Options,
+#       X-Frame-Options, Referrer-Policy): el snippet ya las incluye.
+#    d) en `location ~* \.(?:css|js|svg|woff2?)$` añade `include snippets/security-headers.conf;`
+
+# 4. Valida y recarga (si `nginx -t` falla, restaura la copia .bak y no recargues)
+sudo nginx -t && sudo systemctl reload nginx
+
+# 5. Verifica desde cualquier máquina
+curl -sI https://vavendano.com/project-manager | head -12   # debe ser 200 (sin 301) y traer HSTS + CSP
+curl -sI https://vavendano.com/no-existe | head -1           # 404
+```
+
+Reversión: `sudo cp /etc/nginx/sites-available/victoravendano.bak-<fecha> /etc/nginx/sites-available/victoravendano && sudo nginx -t && sudo systemctl reload nginx`.

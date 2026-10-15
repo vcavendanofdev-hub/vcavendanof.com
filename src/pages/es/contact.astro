@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactChannels from '../../components/ContactChannels.astro';
 import { getSite } from '../../content/site';
+import { contactSchema } from '../../lib/schema';
 
 const locale = 'es' as const;
 const { contact } = getSite(locale);
@@ -13,11 +14,13 @@ const { contact } = getSite(locale);
   description={contact.meta.description}
   path="/es/contact"
   altPath="/contact"
+  structuredData={contactSchema(locale, contact.meta.title, contact.meta.description, '/es/contact')}
 >
   <section class="section">
     <div class="container">
       <h1>{contact.heading}</h1>
       <p class="contact-intro">{contact.intro}</p>
+      <p class="contact-availability">{contact.availability}</p>
       <ContactChannels content={contact} />
     </div>
   </section>
@@ -26,6 +29,13 @@ const { contact } = getSite(locale);
 <style>
   .contact-intro {
     max-width: 640px;
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-availability {
+    max-width: 640px;
     margin-bottom: 2.5rem;
+    color: var(--color-ink);
+    font-weight: 500;
   }
 </style>

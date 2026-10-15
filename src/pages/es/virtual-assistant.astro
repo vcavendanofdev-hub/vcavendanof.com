@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ServicePageBody from '../../components/ServicePageBody.astro';
 import { getSite } from '../../content/site';
+import { serviceSchema } from '../../lib/schema';
 
 const locale = 'es' as const;
 const { va } = getSite(locale);
@@ -13,6 +14,7 @@ const { va } = getSite(locale);
   description={va.meta.description}
   path="/es/virtual-assistant"
   altPath="/virtual-assistant"
+  structuredData={serviceSchema('va', locale, va.meta.description, '/es/virtual-assistant')}
 >
   <ServicePageBody content={va} contactHref="/es/contact" />
 </BaseLayout>

@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getSite } from '../content/site';
+
+const locale = 'en' as const;
+const { hub } = getSite(locale);
+---
+
+<BaseLayout
+  locale={locale}
+  title="Page not found | Victor Avendaño"
+  description="The page you were looking for does not exist."
+  path="/404"
+  altPath="/es"
+  noindex
+>
+  <section class="section">
+    <div class="container notfound">
+      <p class="eyebrow">404</p>
+      <h1>Page not found</h1>
+      <p>The page you were looking for does not exist or has moved. These links will get you back on track.</p>
+      <div class="notfound__links">
+        <a class="btn btn--primary" href="/">Home</a>
+        <a class="btn btn--secondary" href="/project-manager">{hub.nav.pm}</a>
+        <a class="btn btn--secondary" href="/virtual-assistant">{hub.nav.va}</a>
+        <a class="btn btn--secondary" href="/contact">{hub.nav.contact}</a>
+      </div>
+
+      <div class="notfound__es" lang="es">
+        <h2>Página no encontrada</h2>
+        <p>La página que buscabas no existe o cambió de lugar. Estos enlaces te llevan de vuelta.</p>
+        <div class="notfound__links">
+          <a class="btn btn--primary" href="/es">Inicio</a>
+          <a class="btn btn--secondary" href="/es/project-manager">Project Manager</a>
+          <a class="btn btn--secondary" href="/es/virtual-assistant">Asistente Virtual</a>
+          <a class="btn btn--secondary" href="/es/contact">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound {
+    max-width: 720px;
+  }
+
+  .notfound__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+
+  .notfound__es {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-line);
+  }
+</style>

@@ -10,7 +10,7 @@ const posts = (await getCollection('blog', ({ data }) => data.lang === 'en')).so
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const dateFormatter = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const dateFormatter = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 ---
 
 <BaseLayout
@@ -63,7 +63,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { year: 'numeric', month:
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--color-accent);
+    color: var(--color-accent-dark);
     font-weight: 600;
     margin-bottom: 0.5rem;
   }
@@ -79,7 +79,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { year: 'numeric', month:
   }
 
   .post-card h2 a:hover {
-    color: var(--color-accent);
+    color: var(--color-accent-dark);
   }
 
   .post-card__link {
@@ -89,6 +89,6 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { year: 'numeric', month:
   }
 
   .post-card__link:hover {
-    color: var(--color-accent);
+    color: var(--color-accent-dark);
   }
 </style>

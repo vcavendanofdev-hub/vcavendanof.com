@@ -15,12 +15,14 @@ Fuentes revisadas: repo completo en GitHub (componentes, layouts, copy `en.ts`/`
 
 ## Fase 1 — Fixes de datos de contacto (urgente, bajo esfuerzo)
 
-- [ ] Actualizar `src/i18n/config.ts` → `siteMeta.whatsapp` a `+573134075212` y `whatsappDisplay` a `+57 313 407 5212`.
-- [ ] Unificar el email de contacto mostrado en el sitio: decidir si se reemplaza `melethestel@gmail.com` por `info@vavendano.com` en `src/i18n/config.ts` (`siteMeta.email`) y en `src/pages/index.astro` (JSON-LD `founder.email`). Si se reemplaza, verificar que el flujo de "Send As" en Gmail siga funcionando para responder desde esa dirección.
-- [ ] Verificar que ningún componente tenga el número o email hardcodeado fuera de `siteMeta` (`ContactChannels.astro`, `Footer.astro` ya consumen `siteMeta` — confirmar que no haya otra referencia suelta, ej. en JSON-LD del hub).
-- [ ] Rebuild + redeploy (`npm run build` → `rsync` a la VM → reload Nginx) y verificar en producción que el link de WhatsApp abre con el número correcto y mensaje prellenado.
+> **HECHA y desplegada el 14/10/2026.** El número final decidido por Victor es **+57 321 905 2343** (reemplaza al +57 313 407 5212 de este texto) y el email mostrado es `info@vavendano.com`. Verificado en producción en las 10 páginas (EN/ES). El trabajo siguiente está en `roadmap-correcciones-2026-10.md`.
 
-**Criterio de aceptación:** WhatsApp en footer, `/contact`, y `wa.me` links usan +57 313 407 5212 en ambos idiomas; email de contacto es consistente entre sitio y footer.
+- [x] Actualizar `src/i18n/config.ts` → `siteMeta.whatsapp` a `+573134075212` y `whatsappDisplay` a `+57 313 407 5212`. *(valor final: `+573219052343` / `+57 321 905 2343`)*
+- [x] Unificar el email de contacto mostrado en el sitio: decidir si se reemplaza `melethestel@gmail.com` por `info@vavendano.com` en `src/i18n/config.ts` (`siteMeta.email`) y en `src/pages/index.astro` (JSON-LD `founder.email`). Si se reemplaza, verificar que el flujo de "Send As" en Gmail siga funcionando para responder desde esa dirección. *(reemplazado; también en `src/pages/es/index.astro`; Send As ya configurado por Victor)*
+- [x] Verificar que ningún componente tenga el número o email hardcodeado fuera de `siteMeta` (`ContactChannels.astro`, `Footer.astro` ya consumen `siteMeta` — confirmar que no haya otra referencia suelta, ej. en JSON-LD del hub). *(solo quedaban los dos JSON-LD, corregidos)*
+- [x] Rebuild + redeploy (`npm run build` → `rsync` a la VM → reload Nginx) y verificar en producción que el link de WhatsApp abre con el número correcto y mensaje prellenado. *(desplegado con `gcloud compute scp` desde Cloud Shell)*
+
+**Criterio de aceptación:** WhatsApp en footer, `/contact`, y `wa.me` links usan +57 313 407 5212 en ambos idiomas; email de contacto es consistente entre sitio y footer. *(cumplido con el número final +57 321 905 2343)*
 
 ---
 
