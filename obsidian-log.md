@@ -95,3 +95,43 @@ Append-only. See `obsidian-sync.md` in this same folder for the cadence and form
 **Relevant files:** the two post files above; `src/pages/blog/{index,[slug]}.astro` and `src/pages/es/blog/{index,[slug]}.astro` (timeZone: 'UTC').
 
 **Vault should know:** The post uses only facts already approved for the site (ARQ first-pass filter, 90%+ less unnecessary manual review). Pending Victor's review before commit. The blog already had three posts from June 2026; this one is the first of the evidence-based direction and partly overlaps "How AI Is Changing the Project Manager Role" (experience-based).
+
+---
+
+## 2026-10-15 02:10
+
+**What changed:** Phases A, B, C and the first blog post are live in production. Victor committed and pushed (commits `74e637b`, `1a02f70`, `61ad319`, on top of `92d7ce5`), pulled in Cloud Shell and ran `./deploy/deploy.sh` (first real use of the corrected script; 19 pages copied, nginx test passed). Then, step by step on the VM: created `/etc/nginx/snippets/security-headers.conf`, backed up the live config as `victoravendano.bak-2026-10-15`, patched it in place with `sed` (no-redirect `try_files`, `server_tokens off`, include of the snippet in the server and static-asset blocks, removed three duplicated headers), `nginx -t`, reload. `cv_avendano.pdf` is no longer tracked.
+
+**Relevant files:** whole repo; VM files `/etc/nginx/sites-available/victoravendano`, `/etc/nginx/snippets/security-headers.conf`.
+
+**Vault should know:** Verified on production after the reload: HSTS (max-age 31536000), strict CSP, nosniff, X-Frame-Options, Referrer-Policy, Permissions-Policy present on page, CSS, font, image and 404; no `301` on any of 11 routes; fonts load under the CSP with no third-party requests; branded 404 returns 404. Open: Lighthouse scores (PageSpeed API rate-limited; Victor to run it in the browser), the VM reports "System restart required" and 18 security updates pending, the live nginx file differs from the repo template (certbot-managed; the template documents this), the professional photo (roadmap Fase 4, replaces the provisional `og:image`), and the "Executive Assistant" vs "Virtual Assistant" wording in the hub meta description.
+
+---
+
+## 2026-10-15 02:50
+
+**What changed:** VM `victoravendano-web` patched and rebooted, step by step from Cloud Shell. Disk snapshot `victoravendano-web-pre-updates-2026-10-15` taken first (rollback point). 37 packages upgraded with `apt-get upgrade` (simulated first: 0 removals; `open-vm-tools` held back and irrelevant on GCE), existing config files kept. Pre-reboot checks passed (`nginx -t`, `sshd -t`, new kernel and initrd present, services enabled). Reboot took about 1-2 minutes; the site answered HTTP 200 with all security headers intact.
+
+**Relevant files:** none in the repo (VM-only operation).
+
+**Vault should know:** VM now runs kernel 6.8.0-1070-gcp after 104 days of uptime; no reboot pending; nginx, ssh and `certbot.timer` all active after the reboot. Unattended upgrades had been installing kernels for months without ever rebooting, so a reboot is needed periodically. Still on 22.04 LTS (24.04 offered, deliberately not done). Disk 68% of 9.6 GB, of which about 1 GB is the systemd journal and /var/lib is 3.6 GB (not yet investigated). The snapshot can be deleted after a few stable days.
+
+---
+
+## 2026-10-15 03:05
+
+**What changed:** Roadmap Fase 2 (SEO tecnico) closed with evidence. Victor ran PageSpeed Insights on production: mobile and desktop both 100/100/100/100 (Performance, Accessibility, Best Practices, SEO) and "Agentic Browsing" 2/2; desktop FCP 0.2 s, LCP 0.4 s, TBT 0 ms, CLS 0, Speed Index 0.3 s. Hreflang verified by a direct check on production: 9 EN/ES pairs, all self-referencing and reciprocal, x-default and canonical consistent, no redirects, correct `lang`. `roadmap-mejoras-sitio.md` Fase 2 items ticked (og:image, JSON-LD, hreflang, Lighthouse); `roadmap-correcciones-2026-10.md` C8 ticked.
+
+**Relevant files:** `roadmap-mejoras-sitio.md`, `roadmap-correcciones-2026-10.md`.
+
+**Vault should know:** Only informational, unscored insights remain on mobile (render-blocking 2.9 KiB stylesheet, est. 110 ms; one-hop critical chain of 63 ms). Left as is on purpose: inlining it would trade away the 30-day immutable cache for a gain that does not move the score. Lighthouse's 10 "manual check" items (tab order, focus visibility, etc.) were not automatically verifiable and are the remaining accessibility follow-up. Fases 3 (conversion copy), 4 (photo) and 5 (DKIM, deploy.sh done, git push resolved) remain.
+
+---
+
+## 2026-10-15 00:55
+
+**What changed:** At Victor's instruction the personal vault and the Agents Blackboard were updated with the website's state (project note, daily log, index; blackboard decisions, a `site-deploy` playbook, two lessons, a needs-Victor note, the hand-off task closed). Everything pending across the website repo, both vaults and the PAS repo was committed and pushed in the same step.
+
+**Relevant files:** this repo: `obsidian-log.md`, `roadmap-correcciones-2026-10.md`, `roadmap-mejoras-sitio.md`.
+
+**Vault should know:** nothing further; the vault-side record is the project note UPDATE 2026-10-15 and `Logs/log-2026-10-15.md`.
