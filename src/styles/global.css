@@ -264,6 +264,20 @@ p {
   top: 1rem;
 }
 
+/* Anillo de foco propio: no depender del que dibuja cada navegador. 3px, >= 3:1 sobre cualquier fondo del sitio. */
+:focus-visible {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 3px;
+}
+
+.site-header :focus-visible,
+.site-footer :focus-visible,
+.section--dark :focus-visible,
+.cta-final :focus-visible,
+.skip-link:focus-visible {
+  outline-color: #ffffff;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

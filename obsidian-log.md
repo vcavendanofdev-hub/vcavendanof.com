@@ -165,3 +165,13 @@ Append-only. See `obsidian-sync.md` in this same folder for the cadence and form
 **Relevant files:** `src/content/site/{en,es}.ts`, `src/lib/schema.ts`, `src/pages/blog/[slug].astro`, `src/pages/es/blog/[slug].astro`, and the four posts `will-ai-replace-your-va-or-pm`, `reemplazara-la-ia-a-tu-asistente-virtual-o-pm`, `how-ai-is-changing-the-project-manager-role`, `ia-y-el-rol-del-project-manager`.
 
 **Vault should know:** verified locally: 19 pages build, 8 valid BlogPosting blocks (dates match the visible dates), cross-links resolve in both directions, no overflow or contrast problems at 320 and 375 px. Pending Victor's go-ahead to commit, push and deploy. Items 2, 3, 4 and 7 of the queue remain open.
+
+---
+
+## 2026-10-15 11:30
+
+**What changed:** Queue item 2 (keyboard and focus pass) run read-only against the live site, then F2 and F7 applied locally on Victor's choice: an explicit `:focus-visible` ring in `src/styles/global.css` (3px, 3px offset; ink on light areas, white inside the header, footer, dark sections and the service CTA band) and footer links that no longer stretch to the column width (`src/components/Footer.astro`). Not committed or deployed.
+
+**Relevant files:** `src/styles/global.css`, `src/components/Footer.astro`.
+
+**Vault should know:** Findings from the pass (live site): tab order is logical on every route, the skip link and the collapsible certification groups work from the keyboard, every control has an accessible name; the only real gaps were reliance on the browser's default ring (F2), a mobile header whose visual order differs from its tab order (F1, held), and minor items F3 to F6 that Victor did not select. Verified after the change: 61 focusable elements on 3 pages, all with a 3px solid ring (min contrast 13.5:1). Untested: screen readers, Firefox and Safari defaults, forced-colors mode, 200% zoom.
