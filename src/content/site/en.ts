@@ -198,6 +198,18 @@ export const pm: ServicePageContent = {
     { title: 'Per project', body: 'Defined scope and deliverables, with a clear end date.' },
     { title: 'Retainer', body: 'Recurring monthly availability for ongoing needs.' },
   ],
+  audienceHeading: 'Who I work with',
+  audienceAreas: [
+    {
+      title: 'Fintech and startup teams',
+      body: 'You need speed, and you cannot afford to lose control while you get it. At ARQ I ran high-volume case queues on a platform with 2M+ users under strict SLAs, and the templates and escalation paths I built became team assets. For you, that means short cycles, written handoffs and an AI-assisted first pass wherever it is safe to use one.',
+    },
+    {
+      title: 'Public-sector entities and non-profits',
+      body: 'Your processes are formal, and the paperwork has to hold up when someone reviews it. At the Bogotá district government I designed document retention frameworks (TRD/TVD) aligned to governmental standards, and I have founded and run two non-profits with public-private partnerships. For you, that means clear records, defined approvals and nothing improvised.',
+    },
+  ],
+  midCtaBody: 'If your project looks like one of these, send me the scope. I will reply within 24 hours with a concrete proposal.',
   audienceNote:
     "I work both with fintech/startup teams that need speed, and with public-sector entities and non-profits operating under more formal processes — without pretending a specialization that isn't backed by real experience.",
   ctaHeading: 'Have a project that needs structure?',
@@ -287,6 +299,18 @@ export const va: ServicePageContent = {
     { title: 'Per project', body: 'One-off support with a defined scope and close.' },
     { title: 'Retainer', body: 'Recurring monthly availability for ongoing support.' },
   ],
+  audienceHeading: 'Who I work with',
+  audienceAreas: [
+    {
+      title: 'Founders and fintech teams',
+      body: 'Your inbox, calendar and client queue move faster than one person can follow. At Stripe I owned support cases end to end in Salesforce under strict SLAs, in C2 English with business owners and finance leads, and at ARQ I triaged incoming work by risk. For you, that means requests ordered by urgency and replies that are ready to send.',
+    },
+    {
+      title: 'Directors and teams in formal settings',
+      body: 'Some work cannot be improvised: filings, records, approvals, executive travel. I managed document retention for the Bogotá district government and coordinated calendars, travel and follow-up for senior leadership. For you, that means documents filed where a reviewer expects to find them and a calendar that does not collide.',
+    },
+  ],
+  midCtaBody: 'If one of these looks like your week, tell me which one. I will propose how to systematize it.',
   ctaHeading: 'Need to reclaim hours in your week?',
   ctaBody: "Tell me which processes are eating your time and I'll propose how to systematize them.",
   ctaButton: 'Message me',
@@ -304,7 +328,13 @@ export const contact: ContactContent = {
   emailHint: "I respond within 24 hours.",
   whatsappLabel: 'WhatsApp',
   whatsappHint: 'For a faster response.',
-  whatsappMessage: "Hi Victor, I saw your website and I'd like to talk about a project.",
+  whatsappMessage:
+    "Hi Victor, I saw your website and I'd like to talk about a project.\n\nWhat I need:\nScope:\nEngagement (full-time, part-time, per project or retainer):",
+  emailSubject: 'Inquiry from vavendano.com',
+  emailBody:
+    "Hi Victor,\n\nI saw your website and I'd like to talk about a project.\n\nWhat I need:\nScope:\nEngagement (full-time, part-time, per project or retainer):",
+  qualifyHint:
+    'To reply faster, tell me what you need, the rough scope, and whether you are thinking of full-time, part-time, per project or a retainer.',
   calendlyLabel: 'Book a call',
   calendlyHint: 'Pick whatever time works for you.',
   calendlyPending: 'Coming soon — scheduling link on the way.',

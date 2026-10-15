@@ -21,6 +21,7 @@ const { contact } = getSite(locale);
       <h1>{contact.heading}</h1>
       <p class="contact-intro">{contact.intro}</p>
       <p class="contact-availability">{contact.availability}</p>
+      <p class="contact-qualify">{contact.qualifyHint}</p>
       <ContactChannels content={contact} />
     </div>
   </section>
@@ -34,8 +35,14 @@ const { contact } = getSite(locale);
 
   .contact-availability {
     max-width: 640px;
-    margin-bottom: 2.5rem;
+    margin-bottom: 0.75rem;
     color: var(--color-ink);
     font-weight: 500;
+  }
+
+  .contact-qualify {
+    max-width: 640px;
+    margin-bottom: 2.5rem;
+    color: var(--color-ink);
   }
 </style>

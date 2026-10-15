@@ -11,11 +11,15 @@ const whatsappHref = `https://wa.me/${siteMeta.whatsapp.replace('+', '')}?text=$
   content.whatsappMessage
 )}`;
 
+const mailtoHref = `mailto:${siteMeta.email}?subject=${encodeURIComponent(content.emailSubject)}&body=${encodeURIComponent(
+  content.emailBody
+)}`;
+
 const CALENDLY_URL = 'https://calendly.com/vcavendanof-dev/30min';
 ---
 
 <div class="channels grid">
-  <a class="card channel-card" href={`mailto:${siteMeta.email}`}>
+  <a class="card channel-card" href={mailtoHref}>
     <p class="channel-card__label">{content.emailLabel}</p>
     <p class="channel-card__value">{siteMeta.email}</p>
     <p class="channel-card__hint">{content.emailHint}</p>

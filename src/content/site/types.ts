@@ -100,7 +100,10 @@ export interface ServicePageContent {
   modalitiesHeading: string;
   modalitiesIntro: string;
   modalities: Modality[];
+  audienceHeading?: string;
+  audienceAreas?: FocusArea[];
   audienceNote?: string;
+  midCtaBody?: string;
   ctaHeading: string;
   ctaBody: string;
   ctaButton: string;
@@ -116,6 +119,9 @@ export interface ContactContent {
   whatsappLabel: string;
   whatsappHint: string;
   whatsappMessage: string;
+  emailSubject: string;
+  emailBody: string;
+  qualifyHint: string;
   calendlyLabel: string;
   calendlyHint: string;
   calendlyPending: string;

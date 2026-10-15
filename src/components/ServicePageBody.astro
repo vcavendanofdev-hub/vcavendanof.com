@@ -36,6 +36,15 @@ const { content, contactHref } = Astro.props;
   </div>
 </section>
 
+{content.midCtaBody && (
+  <section class="section section--tight midcta">
+    <div class="container midcta__inner">
+      <p>{content.midCtaBody}</p>
+      <a class="btn btn--primary" href={contactHref}>{content.ctaButton}</a>
+    </div>
+  </section>
+)}
+
 {content.extraHeading && content.extraItems && (
   <section class="section section--tight extra">
     <div class="container">
@@ -57,6 +66,15 @@ const { content, contactHref } = Astro.props;
       <ul class="extra__list">
         {content.alsoItems.map((item) => <li>{item}</li>)}
       </ul>
+    </div>
+  </section>
+)}
+
+{content.audienceAreas && (
+  <section class="section section--tight audience">
+    <div class="container">
+      <h2>{content.audienceHeading}</h2>
+      <FocusGrid areas={content.audienceAreas} />
     </div>
   </section>
 )}
@@ -92,6 +110,24 @@ const { content, contactHref } = Astro.props;
 
   .experience__intro {
     max-width: 700px;
+  }
+
+  .midcta__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-accent-soft);
+    border-radius: var(--radius-md);
+  }
+
+  .midcta__inner p {
+    margin: 0;
+    max-width: 560px;
+    color: var(--color-ink);
+    font-weight: 500;
   }
 
   .extra__list {

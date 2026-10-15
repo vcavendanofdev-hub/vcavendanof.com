@@ -198,6 +198,18 @@ export const pm: ServicePageContent = {
     { title: 'Por proyecto', body: 'Alcance y entregables definidos, con fecha de cierre clara.' },
     { title: 'Retainer', body: 'Disponibilidad recurrente mensual para necesidades continuas.' },
   ],
+  audienceHeading: 'Con quién trabajo',
+  audienceAreas: [
+    {
+      title: 'Equipos fintech y startups',
+      body: 'Necesitas velocidad, y no puedes permitirte perder el control mientras la consigues. En ARQ gestioné colas de casos de alto volumen en una plataforma de más de 2M de usuarios, bajo SLAs estrictos, y las plantillas y rutas de escalamiento que construí se volvieron activos del equipo. Para ti, eso significa ciclos cortos, traspasos por escrito y una primera pasada asistida por IA donde sea seguro usarla.',
+    },
+    {
+      title: 'Entidades del sector público y ONGs',
+      body: 'Tus procesos son formales, y la documentación tiene que resistir cuando alguien la revise. En el Distrito de Bogotá diseñé marcos de retención documental (TRD/TVD) alineados con estándares gubernamentales, y fundé y dirigí dos organizaciones sin ánimo de lucro con alianzas público-privadas. Para ti, eso significa registros claros, aprobaciones definidas y nada improvisado.',
+    },
+  ],
+  midCtaBody: 'Si tu proyecto se parece a alguno de estos, envíame el alcance. Te respondo en menos de 24 horas con una propuesta concreta.',
   audienceNote:
     'Trabajo tanto con equipos fintech/startups que necesitan velocidad, como con entidades del sector público y ONGs que operan bajo procesos más formales — sin fingir una especialización que no esté respaldada por experiencia real.',
   ctaHeading: '¿Tienes un proyecto que necesita estructura?',
@@ -287,6 +299,18 @@ export const va: ServicePageContent = {
     { title: 'Por proyecto', body: 'Apoyo puntual con alcance y cierre definidos.' },
     { title: 'Retainer', body: 'Disponibilidad recurrente mensual para soporte continuo.' },
   ],
+  audienceHeading: 'Con quién trabajo',
+  audienceAreas: [
+    {
+      title: 'Fundadores y equipos fintech',
+      body: 'Tu bandeja, tu agenda y tu cola de clientes se mueven más rápido de lo que una sola persona puede seguir. En Stripe llevé casos de soporte de principio a fin en Salesforce, bajo SLAs estrictos, en inglés C2 con dueños de negocio y líderes de finanzas, y en ARQ prioricé el trabajo entrante según el riesgo. Para ti, eso significa solicitudes ordenadas por urgencia y respuestas listas para enviar.',
+    },
+    {
+      title: 'Directivos y equipos en entornos formales',
+      body: 'Hay trabajo que no se puede improvisar: archivo, registros, aprobaciones, viajes ejecutivos. Gestioné la retención documental del Distrito de Bogotá y coordiné agendas, viajes y seguimiento para la dirección ejecutiva. Para ti, eso significa documentos archivados donde un revisor espera encontrarlos y una agenda sin choques.',
+    },
+  ],
+  midCtaBody: 'Si alguno de estos se parece a tu semana, cuéntame cuál. Te propongo cómo sistematizarlo.',
   ctaHeading: '¿Necesitas recuperar horas de tu semana?',
   ctaBody: 'Cuéntame qué procesos te están consumiendo tiempo y te propongo cómo sistematizarlos.',
   ctaButton: 'Escríbeme',
@@ -304,7 +328,13 @@ export const contact: ContactContent = {
   emailHint: 'Respondo en menos de 24 horas.',
   whatsappLabel: 'WhatsApp',
   whatsappHint: 'Para una respuesta más inmediata.',
-  whatsappMessage: 'Hola Victor, vi tu sitio web y me gustaría conversar sobre un proyecto.',
+  whatsappMessage:
+    'Hola Victor, vi tu sitio web y me gustaría conversar sobre un proyecto.\n\nQué necesito:\nAlcance:\nModalidad (tiempo completo, medio tiempo, por proyecto o retainer):',
+  emailSubject: 'Consulta desde vavendano.com',
+  emailBody:
+    'Hola Victor,\n\nVi tu sitio web y me gustaría conversar sobre un proyecto.\n\nQué necesito:\nAlcance:\nModalidad (tiempo completo, medio tiempo, por proyecto o retainer):',
+  qualifyHint:
+    'Para responderte más rápido, cuéntame qué necesitas, el alcance aproximado y si piensas en tiempo completo, medio tiempo, por proyecto o retainer.',
   calendlyLabel: 'Agendar una llamada',
   calendlyHint: 'Elige el horario que mejor te funcione.',
   calendlyPending: 'Próximamente — enlace de agendamiento en camino.',
