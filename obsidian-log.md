@@ -175,3 +175,23 @@ Append-only. See `obsidian-sync.md` in this same folder for the cadence and form
 **Relevant files:** `src/styles/global.css`, `src/components/Footer.astro`.
 
 **Vault should know:** Findings from the pass (live site): tab order is logical on every route, the skip link and the collapsible certification groups work from the keyboard, every control has an accessible name; the only real gaps were reliance on the browser's default ring (F2), a mobile header whose visual order differs from its tab order (F1, held), and minor items F3 to F6 that Victor did not select. Verified after the change: 61 focusable elements on 3 pages, all with a 3px solid ring (min contrast 13.5:1). Untested: screen readers, Firefox and Safari defaults, forced-colors mode, 200% zoom.
+
+---
+
+## 2026-10-15 16:20
+
+**What changed:** VM disk investigation (queue item 7) and a journal trim, run by Victor in Cloud Shell step by step. `/var/lib` is 3.6 GB, of which 3.3 GB is snapd: mostly superseded downloads of the `google-cloud-cli` snap (about 350 MB each), which the site does not use. Victor chose only the journal trim: the system journal was vacuumed from 1.0 GB to about 200 MB (freed 824 MB) and capped with `SystemMaxUse=200M`. No site or nginx change. Disk use 68% to 60%.
+
+**Relevant files:** none in this repo (VM-only operation).
+
+**Vault should know:** the snap cache was deliberately left alone and will refill by about 350 MB per `google-cloud-cli` refresh; revisit if disk use passes about 80%. The pre-update disk snapshot can be deleted now (per Victor's earlier rule: keep until the tidy-up is done). The system journal was mostly SSH bot noise (invalid-user attempts), normal for a public VM.
+
+---
+
+## 2026-10-15 17:05
+
+**What changed:** Commits `dd7e43b` (Virtual Assistant wording, cross-linked AI posts, BlogPosting structured data) and `496f2f4` (explicit focus ring, footer links that hug their text) were deployed by Victor from Cloud Shell and verified on production by the website session. No repo files changed in this step.
+
+**Relevant files:** none (verification only).
+
+**Vault should know:** verified on `https://vavendano.com`: 10 routes 200 with no redirects; "Virtual Assistant" in titles and meta descriptions in EN and ES and no "Executive Assistant/AI Partner" left; `BlogPosting` JSON-LD valid on all 8 posts with dates matching the visible dates; the two AI posts link to each other in both languages; HSTS, CSP, nosniff, X-Frame-Options and Referrer-Policy on page, post, CSS and 404; the focus ring (3px solid, 3px offset) is live and measures white on the dark header and footer and ink elsewhere on real Tab presses; fonts local, no third-party requests. Queue items 1, 2, 5, 6 and 7 are done; 3 (photo, due 16/10) and 4 (Phase 3 copy) remain.
