@@ -135,3 +135,23 @@ Append-only. See `obsidian-sync.md` in this same folder for the cadence and form
 **Relevant files:** this repo: `obsidian-log.md`, `roadmap-correcciones-2026-10.md`, `roadmap-mejoras-sitio.md`.
 
 **Vault should know:** nothing further; the vault-side record is the project note UPDATE 2026-10-15 and `Logs/log-2026-10-15.md`.
+
+---
+
+## 2026-10-15 01:15
+
+**What changed:** No site code changed. Victor ruled, in chat, that the source CV stays OUT of the repo tree (final) and that the website shows only the latest Ecoproyectos role (already the case). The session's blackboard role `site:maintenance` was created and approved (`Agents/site--maintenance.md`); the local, git-ignored `agent-blackboard.md` was updated to match.
+
+**Relevant files:** none in this repo besides this log (the role and rulings live on the blackboard).
+
+**Vault should know:** at the next sync, append a correction to the website project note and the index: the CV file is removed from the public repo tree (final, commit `61ad319`), and the site shows only the latest Ecoproyectos role. The earlier "CV stays public" lines are superseded. Open question for Victor, asked in chat: wording "Executive" vs "Virtual Assistant", next priorities, photo, VM extras.
+
+---
+
+## 2026-10-15 01:20
+
+**What changed:** No site code changed. Victor answered the open website questions in chat. Queued, not started: use "Virtual Assistant" everywhere (hub meta description and VA page title still say "Executive"); keyboard and focus accessibility pass; photo in the hero and social card (he has the photo on 16/10/2026); Phase 3 audience copy; cross-link the two AI blog posts; BlogPosting JSON-LD; read-only look at the VM's `/var/lib`. Snapshot kept until the VM tidy-up is done. DKIM for info@vavendano.com is undecided: Gmail "Send mail as" alias, SMTP server not yet known.
+
+**Relevant files:** none in this repo (queue and rulings are on the blackboard).
+
+**Vault should know:** nothing starts until Victor says so; the queue is `Tasks/2026-10-15_0100_site-queue.md` on the blackboard.
