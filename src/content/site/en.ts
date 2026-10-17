@@ -10,6 +10,8 @@ export const common: CommonStrings = {
   langSwitchLabel: 'Español',
   skipToContent: 'Skip to content',
   homeAriaLabel: 'Victor Avendaño — home',
+  mainNavLabel: 'Main',
+  footerNavLabel: 'Footer',
   ogImageAlt: 'Victor Avendaño: AI-augmented Project Manager and bilingual Virtual Assistant',
 };
 

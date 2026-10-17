@@ -35,7 +35,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { year: 'numeric', month:
               </p>
               <h2><a href={`/blog/${slug}`}>{post.data.title}</a></h2>
               <p>{post.data.description}</p>
-              <a class="post-card__link" href={`/blog/${slug}`}>{blog.readMore} →</a>
+              <a class="post-card__link" href={`/blog/${slug}`} aria-label={`${blog.readMore}: ${post.data.title}`}>{blog.readMore} <span aria-hidden="true">→</span></a>
             </li>
           );
         })}

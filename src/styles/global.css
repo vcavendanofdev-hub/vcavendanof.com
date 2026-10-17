@@ -286,3 +286,27 @@ p {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+/* The skip link moves focus to <main>; it is not a control, so it gets no ring. */
+main:focus,
+main:focus-visible {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .btn:hover,
+  a.channel-card:hover {
+    transform: none !important;
+  }
+}

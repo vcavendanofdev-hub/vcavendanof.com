@@ -140,5 +140,7 @@ export interface CommonStrings {
   langSwitchLabel: string;
   skipToContent: string;
   homeAriaLabel: string;
+  mainNavLabel: string;
+  footerNavLabel: string;
   ogImageAlt: string;
 }

@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { locale } = Astro.props;
-const { hub } = getSite(locale);
+const { hub, common } = getSite(locale);
 const year = new Date().getFullYear();
 const whatsappHref = `https://wa.me/${siteMeta.whatsapp.replace('+', '')}`;
 ---
@@ -20,7 +20,7 @@ const whatsappHref = `https://wa.me/${siteMeta.whatsapp.replace('+', '')}`;
       <p class="tagline">{hub.footer.tagline}</p>
     </div>
 
-    <nav class="site-footer__nav" aria-label="Footer">
+    <nav class="site-footer__nav" aria-label={common.footerNavLabel}>
       <a href={localePath('/project-manager', locale)}>{hub.nav.pm}</a>
       <a href={localePath('/virtual-assistant', locale)}>{hub.nav.va}</a>
       <a href={localePath('/blog', locale)}>{hub.nav.blog}</a>
